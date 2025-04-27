@@ -3,8 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>一口甜冰淇淋店 - 線上訂購</title>
+    <title>一口甜冰淇淋店 - 購物車</title>
     <link rel="stylesheet" href="/static/style.css">
+    <script>
+        function renderCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let cartTable = document.getElementById('cart');
+            let total = 0;
+            cartTable.innerHTML = "";
+
+            cart.forEach((item, index) => {
+                let subtotal = item.price * item.quantity;
+                total += subtotal;
+                cartTable.innerHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.size}</td>
+                        <td>${item.price}</td>
+                        <td>${item.quantity}</td>
+                        <td>${subtotal}</td>
+                    </tr>
+                `;
+            });
+
+            let shipping = total >= 980 ? 0 : 120;
+            let grandTotal = total + shipping;
+
+            document.getElementById('subtotal').innerText = total;
+            document.getElementById('shipping').innerText = shipping;
+            document.getElementById('total').innerText = grandTotal;
+
+            // 把購物車內容和總金額存到隱藏欄位，準備送到後端
+            document.getElementById('cartData').value = cart.map(i => `${i.name} x${i.quantity}`).join(', ');
+            document.getElementById('totalPriceData').value = grandTotal;
+        }
+
+        window.onload = renderCart;
+    </script>
 </head>
 <body>
     <header>
@@ -12,15 +47,39 @@
         <nav>
             <a href="/">首頁</a>
             <a href="/products">商品介紹</a>
-            <a href="/order">線上訂購</a>
+            <a href="/order">購物車</a>
             <a href="/location">商店位置</a>
             <a href="/admin">員工管理</a>
         </nav>
     </header>
     <main>
         <section class="content">
-            <h2>線上訂購</h2>
+            <h2>購物車內容</h2>
+            <p>※ 滿980元免運費，未滿加收120元運費</p>
+            <table border="1" class="order-table">
+                <thead>
+                    <tr>
+                        <th>商品名稱</th>
+                        <th>尺寸</th>
+                        <th>單價</th>
+                        <th>數量</th>
+                        <th>小計</th>
+                    </tr>
+                </thead>
+                <tbody id="cart"></tbody>
+            </table>
+
+            <div style="margin-top:20px;">
+                <p>小計：<span id="subtotal">0</span> 元</p>
+                <p>運費：<span id="shipping">0</span> 元</p>
+                <p><strong>總金額：<span id="total">0</span> 元</strong></p>
+            </div>
+
+            <h2>結帳資訊</h2>
             <form action="/submit" method="post" class="order-form">
+                <input type="hidden" name="cart" id="cartData">
+                <input type="hidden" name="total_price" id="totalPriceData">
+
                 <label>姓名：<input type="text" name="name" required></label><br>
                 <label>聯絡電話：<input type="text" name="phone" required></label><br>
                 <label>取貨日期：<input type="date" name="pickup_date" required></label><br>
