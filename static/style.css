@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #62a3a0;
+    color: #fff;
+}
+
+header {
+    background-color: #f1b91f;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #fff;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #5a5a5a;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: #fff;
+    padding: 15px 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: #e6a900;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+.content h2 {
+    color: #e6a900;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #ff8800;
+    text-align: center;
+    padding: 10px;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.product-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #ffffff22;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    color: #fff;
+}
+
+.map-container {
+    width: 80%;
+    margin: auto;
+}
+
+form.order-form {
+    display: inline-block;
+    text-align: left;
+    background-color: #ffffff22;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+form.order-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+form.order-form input, form.order-form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+form.order-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e6a900;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+form.order-form button:hover {
+    background-color: #f09c00;
+}
+
+.order-table {
+    margin: auto;
+    width: 90%;
+    background-color: #ffffff22;
+    border-collapse: collapse;
+}
+
+.order-table th, .order-table td {
+    padding: 10px;
+    border: 1px solid #fff;
+}

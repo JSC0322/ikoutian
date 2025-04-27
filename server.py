@@ -1,0 +1,53 @@
+from flask import Flask, request, render_template, redirect, url_for
+import csv
+import os
+
+app = Flask(__name__)
+
+# 確保有orders.csv
+if not os.path.exists('orders.csv'):
+    with open('orders.csv', 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['姓名', '聯絡電話', '取貨日期', '便利商店類型', '便利商店名稱'])
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+@app.route('/products')
+def products():
+    return render_template('products.html')
+
+@app.route('/order')
+def order():
+    return render_template('order.html')
+
+@app.route('/location')
+def location():
+    return render_template('location.html')
+
+@app.route('/admin')
+def admin():
+    orders = []
+    with open('orders.csv', 'r', newline='',encoding='utf-8') as f:
+        reader = csv.reader(f)
+        next(reader)  # skip header
+        orders = list(reader)
+    return render_template('admin.html', orders=orders)
+
+@app.route('/submit', methods=['POST'])
+def submit():
+    name = request.form['name']
+    phone = request.form['phone']
+    pickup_date = request.form['pickup_date']
+    store_type = request.form['store_type']
+    store_name = request.form['store_name']
+    
+    with open('orders.csv', 'a', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow([name, phone, pickup_date, store_type, store_name])
+    
+    return redirect(url_for('home'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
