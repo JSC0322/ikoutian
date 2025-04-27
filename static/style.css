@@ -124,3 +124,17 @@ form.order-form button:hover {
     padding: 10px;
     border: 1px solid #fff;
 }
+
+.return-home-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #e6a900;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.return-home-btn:hover {
+    background-color: #f09c00;
+}
