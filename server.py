@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for
 import csv
 import os
-import json
 
 app = Flask(__name__)
 
@@ -26,15 +25,6 @@ def order():
 @app.route('/location')
 def location():
     return render_template('location.html')
-
-@app.route('/admin')
-def admin():
-    orders = []
-    with open('orders.csv', 'r', newline='', encoding='utf-8') as f:
-        reader = csv.reader(f)
-        next(reader)  # skip header
-        orders = list(reader)
-    return render_template('admin.html', orders=orders)
 
 @app.route('/submit', methods=['POST'])
 def submit():
