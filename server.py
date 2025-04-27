@@ -1,14 +1,15 @@
 from flask import Flask, request, render_template, redirect, url_for
 import csv
 import os
+import json
 
 app = Flask(__name__)
 
-# 確保有orders.csv
+# 確保有orders.csv存在
 if not os.path.exists('orders.csv'):
-    with open('orders.csv', 'w', newline='') as f:
+    with open('orders.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow(['姓名', '聯絡電話', '取貨日期', '便利商店類型', '便利商店名稱'])
+        writer.writerow(['購物清單', '總金額', '姓名', '聯絡電話', '取貨日期', '便利商店類型', '便利商店名稱'])
 
 @app.route('/')
 def home():
@@ -29,7 +30,7 @@ def location():
 @app.route('/admin')
 def admin():
     orders = []
-    with open('orders.csv', 'r', newline='',encoding='utf-8') as f:
+    with open('orders.csv', 'r', newline='', encoding='utf-8') as f:
         reader = csv.reader(f)
         next(reader)  # skip header
         orders = list(reader)
@@ -37,19 +38,24 @@ def admin():
 
 @app.route('/submit', methods=['POST'])
 def submit():
+    cart = request.form['cart']  # 購物車資料
+    total_price = request.form['total_price']  # 總金額
     name = request.form['name']
     phone = request.form['phone']
     pickup_date = request.form['pickup_date']
     store_type = request.form['store_type']
     store_name = request.form['store_name']
     
-    with open('orders.csv', 'a', newline='') as f:
+    with open('orders.csv', 'a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow([name, phone, pickup_date, store_type, store_name])
+        writer.writerow([cart, total_price, name, phone, pickup_date, store_type, store_name])
     
-    return redirect(url_for('home'))
+    return redirect(url_for('thanks'))
+
+@app.route('/thanks')
+def thanks():
+    return render_template('thanks.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
-    
