@@ -1,10 +1,20 @@
 from flask import Flask, request, render_template, redirect, url_for
 import csv
 import os
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
 
-# 確保有orders.csv存在
+# Email設定
+SMTP_SERVER = 'smtp.mail.me.com'
+SMTP_PORT = 587
+SENDER_EMAIL = 'clerk@asweet.com.tw'  # 發信者信箱
+SENDER_PASSWORD = 'ceop-rxfr-awlo-avno'  # 替換成剛剛生成的那組密碼
+STAFF_EMAIL = 'clerk@asweet.com.tw'  # 店員收信地址
+
+# 確保有訂單紀錄檔
 if not os.path.exists('orders.csv'):
     with open('orders.csv', 'w', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
@@ -28,23 +38,84 @@ def location():
 
 @app.route('/submit', methods=['POST'])
 def submit():
-    cart = request.form['cart']  # 購物車資料
-    total_price = request.form['total_price']  # 總金額
+    cart = request.form['cart']
+    total_price = request.form['total_price']
     name = request.form['name']
     phone = request.form['phone']
     pickup_date = request.form['pickup_date']
     store_type = request.form['store_type']
     store_name = request.form['store_name']
-    
+
+    # 保存到CSV
     with open('orders.csv', 'a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow([cart, total_price, name, phone, pickup_date, store_type, store_name])
-    
+
+    # 寄信給客人
+    send_email_to_customer(phone, name, cart, total_price, pickup_date, store_type, store_name)
+
+    # 寄信給店員
+    send_email_to_staff(cart, total_price, name, phone, pickup_date, store_type, store_name)
+
     return redirect(url_for('thanks'))
 
 @app.route('/thanks')
 def thanks():
     return render_template('thanks.html')
+
+# 這裡是寄給客人的信
+def send_email_to_customer(phone, name, cart, total_price, pickup_date, store_type, store_name):
+    subject = "您的訂單已收到 - 一口甜冰淇淋店"
+    body = f"""
+親愛的 {name} 先生/小姐，您好：
+
+感謝您訂購我們的冰淇淋蛋糕！
+以下是您的訂單資訊：
+
+購物清單：{cart}
+總金額：{total_price} 元
+取貨日期：{pickup_date}
+取貨便利商店：{store_type} - {store_name}
+
+如有任何問題，請聯絡我們。
+祝您有個美好的一天！
+
+一口甜冰淇淋店
+"""
+
+    # 用電話號碼暫當客人email，這裡**建議改成有email輸入欄位！**
+    customer_email = STAFF_EMAIL  # 測試時先寄回自己，正式版請改客人信箱
+    send_email(customer_email, subject, body)
+
+# 這裡是寄給店員的信
+def send_email_to_staff(cart, total_price, name, phone, pickup_date, store_type, store_name):
+    subject = "新訂單通知 - 一口甜冰淇淋店"
+    body = f"""
+有新訂單了！
+
+購物清單：{cart}
+總金額：{total_price} 元
+姓名：{name}
+聯絡電話：{phone}
+取貨日期：{pickup_date}
+取貨便利商店：{store_type} - {store_name}
+"""
+
+    send_email(STAFF_EMAIL, subject, body)
+
+# 通用寄信函數
+def send_email(receiver_email, subject, body):
+    message = MIMEMultipart()
+    message['From'] = SENDER_EMAIL
+    message['To'] = receiver_email
+    message['Subject'] = subject
+
+    message.attach(MIMEText(body, 'plain', 'utf-8'))
+
+    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+        server.starttls()
+        server.login(SENDER_EMAIL, SENDER_PASSWORD)
+        server.send_message(message)
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
