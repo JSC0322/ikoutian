@@ -42,6 +42,7 @@ def submit():
     total_price = request.form['total_price']
     name = request.form['name']
     phone = request.form['phone']
+    email = request.form['email']  # ✨ 新增這行
     pickup_date = request.form['pickup_date']
     store_type = request.form['store_type']
     store_name = request.form['store_name']
@@ -49,13 +50,13 @@ def submit():
     # 保存到CSV
     with open('orders.csv', 'a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow([cart, total_price, name, phone, pickup_date, store_type, store_name])
+        writer.writerow([cart, total_price, name, phone, email, pickup_date, store_type, store_name])
 
     # 寄信給客人
-    send_email_to_customer(phone, name, cart, total_price, pickup_date, store_type, store_name)
+    send_email_to_customer(email, name, cart, total_price, pickup_date, store_type, store_name)
 
     # 寄信給店員
-    send_email_to_staff(cart, total_price, name, phone, pickup_date, store_type, store_name)
+    send_email_to_staff(cart, total_price, name, phone, email, pickup_date, store_type, store_name)
 
     return redirect(url_for('thanks'))
 
