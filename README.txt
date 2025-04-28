@@ -6,7 +6,7 @@
    pip install flask
 
 2. 啟動伺服器
-   python server.py
+   py server.py
 
 3. 在瀏覽器打開
    http://localhost:5000
