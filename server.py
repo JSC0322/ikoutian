@@ -75,7 +75,7 @@ def send_email_to_customer(phone, name, cart, total_price, pickup_date, store_ty
 購物清單：{cart}
 總金額：{total_price} 元
 取貨日期：{pickup_date}
-取貨便利商店：{store_type} - {store_name}
+取貨便利商店：{store_type} - {store_name}門市
 
 如有任何問題，請聯絡我們。
 祝您有個美好的一天！
@@ -98,7 +98,7 @@ def send_email_to_staff(cart, total_price, name, phone, pickup_date, store_type,
 姓名：{name}
 聯絡電話：{phone}
 取貨日期：{pickup_date}
-取貨便利商店：{store_type} - {store_name}
+取貨便利商店：{store_type} - {store_name}門市
 """
 
     send_email(STAFF_EMAIL, subject, body)
