@@ -10,7 +10,7 @@ app = Flask(__name__)
 # Email設定
 SMTP_SERVER = 'smtp.mail.me.com'
 SMTP_PORT = 587
-SENDER_EMAIL = 'piggy109023@icloud.com'  # 發信者信箱
+SENDER_EMAIL = 'piggy109023@gmail.com'  # 發信者信箱
 SENDER_PASSWORD = 'ceop-rxfr-awlo-avno'  # 替換成剛剛生成的那組密碼
 STAFF_EMAIL = 'clerk@asweet.com.tw'  # 店員收信地址
 
