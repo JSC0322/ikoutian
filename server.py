@@ -107,7 +107,7 @@ def send_email_to_staff(cart, total_price, name, phone, pickup_date, store_type,
 # 通用寄信函數
 def send_email(receiver_email, subject, body):
     message = MIMEMultipart()
-    message['From'] = SENDER_EMAIL
+    message['From'] = 'clerk@asweet.com.tw'
     message['To'] = receiver_email
     message['Subject'] = subject
 
