@@ -22,38 +22,42 @@
 
     <section class="order-section">
         <h2>訂購資訊填寫</h2>
-        <form action="/submit" method="post">
 
-            <label for="cart">購物清單（自動填寫）</label><br>
-            <textarea id="cart" name="cart" required></textarea><br><br>
+        <div class="order-card">
+            <form action="/submit" method="post">
 
-            <label for="total_price">總金額（自動填寫）</label><br>
-            <input type="text" id="total_price" name="total_price" required><br><br>
+                <label for="cart">購物清單（自動填寫）</label><br>
+                <textarea id="cart" name="cart" required readonly style="height:100px;"></textarea><br><br>
 
-            <label for="name">姓名</label><br>
-            <input type="text" id="name" name="name" required><br><br>
+                <label for="total_price">總金額</label><br>
+                <input type="text" id="total_price" name="total_price" required readonly><br><br>
 
-            <label for="phone">聯絡電話</label><br>
-            <input type="text" id="phone" name="phone" required><br><br>
+                <label for="name">姓名</label><br>
+                <input type="text" id="name" name="name" required><br><br>
 
-            <label for="email">電子郵件</label><br>
-            <input type="email" id="email" name="email" required><br><br>
+                <label for="phone">聯絡電話</label><br>
+                <input type="text" id="phone" name="phone" required><br><br>
 
-            <label for="pickup_date">取貨日期</label><br>
-            <input type="date" id="pickup_date" name="pickup_date" required><br><br>
+                <label for="email">電子郵件</label><br>
+                <input type="email" id="email" name="email" required><br><br>
 
-            <label for="store_type">取貨便利商店種類</label><br>
-            <select id="store_type" name="store_type" required>
-                <option value="7-11">7-11</option>
-                <option value="全家">全家</option>
-            </select><br><br>
+                <label for="pickup_date">取貨日期</label><br>
+                <input type="date" id="pickup_date" name="pickup_date" required><br><br>
 
-            <label for="store_name">便利商店店名</label><br>
-            <input type="text" id="store_name" name="store_name" required><br><br>
+                <label for="store_type">取貨便利商店種類</label><br>
+                <select id="store_type" name="store_type" required>
+                    <option value="7-11">7-11</option>
+                    <option value="全家">全家</option>
+                </select><br><br>
 
-            <button type="submit" class="cart-btn">提交訂單</button>
+                <label for="store_name">便利商店店名</label><br>
+                <input type="text" id="store_name" name="store_name" required><br><br>
 
-        </form>
+                <button type="submit" class="cart-btn">提交訂單</button>
+
+            </form>
+        </div>
+
     </section>
 
 </main>
@@ -63,10 +67,10 @@
 </footer>
 
 <script>
-// 把購物車資料帶到表單
+// 自動填購物車資料
 if (localStorage.getItem('cart')) {
     let cart = JSON.parse(localStorage.getItem('cart'));
-    let cartText = cart.map(item => `${item.name} (${item.size}) x${item.quantity}`).join('\\n');
+    let cartText = cart.map(item => `${item.name} (${item.size}) x${item.quantity}`).join('\n');
     let totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
     document.getElementById('cart').value = cartText;
     document.getElementById('total_price').value = totalPrice;
