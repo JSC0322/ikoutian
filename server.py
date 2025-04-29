@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for
 import csv
 import os
+import json
 import smtplib
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -9,21 +10,18 @@ from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
 
-# 設定Google Sheets認證
+# 讀取Google Sheets憑證（從環境變數）
+credentials_json = os.environ.get('GCP_CREDENTIALS')
+if credentials_json is None:
+    raise ValueError("Missing GCP_CREDENTIALS environment variable")
+
+credentials_dict = json.loads(credentials_json)
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-credentials = ServiceAccountCredentials.from_json_keyfile_name('asweet-credentials.json', scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict, scope)
 gc = gspread.authorize(credentials)
 
-# 這個是你的試算表ID
+# Google Sheet ID
 SPREADSHEET_ID = '1BYi0FMpCKzXwfIIzsNKlvVDD9Bbyc3M0b3_RCF7QJJc'
-
-def write_order_to_sheets(cart, total_price, name, phone, email, pickup_date, store_type, store_name):
-    sh = gc.open_by_key(SPREADSHEET_ID)
-    worksheet = sh.sheet1  # 第一個工作表
-
-    # 寫一筆新資料
-    new_row = [cart, total_price, name, phone, email, pickup_date, store_type, store_name]
-    worksheet.append_row(new_row, value_input_option='RAW')
 
 # Email設定
 SMTP_SERVER = 'smtp.mail.me.com'
@@ -32,11 +30,18 @@ SENDER_EMAIL = 'piggy109023@icloud.com'  # 發信者信箱
 SENDER_PASSWORD = 'ceop-rxfr-awlo-avno'  # 替換成剛剛生成的那組密碼
 STAFF_EMAIL = 'clerk@asweet.com.tw'  # 店員收信地址
 
-# 確保有訂單紀錄檔
-if not os.path.exists('orders.csv'):
-    with open('orders.csv', 'w', newline='', encoding='utf-8') as f:
+# 保存訂單到Google Sheets
+def write_order_to_sheets(cart, total_price, name, phone, email, pickup_date, store_type, store_name):
+    sh = gc.open_by_key(SPREADSHEET_ID)
+    worksheet = sh.sheet1
+    new_row = [cart, total_price, name, phone, email, pickup_date, store_type, store_name]
+    worksheet.append_row(new_row, value_input_option='RAW')
+
+# 保存訂單到本地CSV
+def save_order_to_csv(cart, total_price, name, phone, email, pickup_date, store_type, store_name):
+    with open('orders.csv', 'a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
-        writer.writerow(['購物清單', '總金額', '姓名', '聯絡電話', '取貨日期', '便利商店類型', '便利商店名稱'])
+        writer.writerow([cart, total_price, name, phone, email, pickup_date, store_type, store_name])
 
 @app.route('/')
 def home():
@@ -68,20 +73,14 @@ def submit():
     if not email or '@' not in email:
         return "email 格式錯誤", 400
 
-    # 保存到CSV
-    with open('orders.csv', 'a', newline='', encoding='utf-8') as f:
-        writer = csv.writer(f)
-        writer.writerow([cart, total_price, name, phone, email, pickup_date, store_type, store_name])
-
+    save_order_to_csv(cart, total_price, name, phone, email, pickup_date, store_type, store_name)
     write_order_to_sheets(cart, total_price, name, phone, email, pickup_date, store_type, store_name)
 
-    # 寄信給客人
     send_email_to_customer(email, name, cart, total_price, pickup_date, store_type, store_name)
-
-    # 寄信給店員
     send_email_to_staff(cart, total_price, name, phone, email, pickup_date, store_type, store_name)
 
     return redirect(url_for('thanks'))
+
 
 @app.route('/thanks')
 def thanks():
