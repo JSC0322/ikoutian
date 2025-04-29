@@ -98,3 +98,15 @@ footer {
     border-radius: 15px;
     text-align: center;
 }
+.order-section {
+    text-align: center;
+}
+
+.order-card {
+    background-color: rgba(255, 255, 255, 0.2);
+    margin: 20px auto;
+    padding: 30px;
+    width: 350px;
+    border-radius: 15px;
+    text-align: left;
+}
