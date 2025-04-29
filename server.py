@@ -65,7 +65,7 @@ def thanks():
     return render_template('thanks.html')
 
 # 這裡是寄給客人的信
-def send_email_to_customer(phone, name, cart, total_price, pickup_date, store_type, store_name):
+def send_email_to_customer(customer_email, name, cart, total_price, pickup_date, store_type, store_name):
     subject = "您的訂單已收到 - 一口甜冰淇淋店"
     body = f"""
 親愛的 {name} 先生/小姐，您好：
@@ -84,9 +84,8 @@ def send_email_to_customer(phone, name, cart, total_price, pickup_date, store_ty
 一口甜冰淇淋店
 """
 
-    # 用電話號碼暫當客人email，這裡**建議改成有email輸入欄位！**
-    customer_email = STAFF_EMAIL  # 測試時先寄回自己，正式版請改客人信箱
     send_email(customer_email, subject, body)
+
 
 # 這裡是寄給店員的信
 def send_email_to_staff(cart, total_price, name, phone, pickup_date, store_type, store_name):
