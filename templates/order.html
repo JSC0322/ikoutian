@@ -28,6 +28,14 @@
 
                 <label for="cart">購物清單（自動填寫）</label><br>
                 <textarea id="cart" name="cart" required readonly style="height:100px;"></textarea><br><br>
+                <button onclick="clearCart()" class="cart-btn">清空購物車</button>
+                <script>
+                    function clearCart() {
+                        localStorage.removeItem('cart');
+                        alert('購物車已清空');
+                        location.reload(); // 重新整理畫面
+                    }
+                </script>
 
                 <label for="total_price">總金額</label><br>
                 <input type="text" id="total_price" name="total_price" required readonly><br><br>
