@@ -42,10 +42,13 @@ def submit():
     total_price = request.form['total_price']
     name = request.form['name']
     phone = request.form['phone']
-    email = request.form['email']  # ✨ 新增這行
+    email = request.form['email'].strip()
     pickup_date = request.form['pickup_date']
     store_type = request.form['store_type']
     store_name = request.form['store_name']
+
+    if not email or '@' not in email:
+        return "email 格式錯誤", 400
 
     # 保存到CSV
     with open('orders.csv', 'a', newline='', encoding='utf-8') as f:
@@ -98,7 +101,7 @@ def send_email_to_staff(cart, total_price, name, phone, pickup_date, store_type,
 姓名：{name}
 聯絡電話：{phone}
 取貨日期：{pickup_date}
-取貨便利商店：{store_type} - {store_name}門市
+取貨便利商店：{store_type} - {store_name} 門市
 """
 
     send_email(STAFF_EMAIL, subject, body)
