@@ -21,8 +21,12 @@
         <section class="content">
             <h2>感謝您的訂購！</h2>
             <p>我們已收到您的訂單，請耐心等待通知取貨！</p>
-            <a href="/" class="return-home-btn">返回首頁</a>
+            <a href="/" class="cart-btn">返回首頁</a>
         </section>
+        <script>
+            // 自動清空購物車
+            localStorage.removeItem('cart');
+        </script>
     </main>
     <footer>
         <p>&copy; 2025 一口甜冰淇淋店. 版權所有.</p>
