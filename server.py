@@ -33,7 +33,7 @@ STAFF_EMAIL = 'aching0301@gmail.com'  # 店員收信地址
 # 保存訂單到Google Sheets
 def write_order_to_sheets(cart, total_price, name, phone, email, pickup_date, store_type, store_name):
     sh = gc.open_by_key(SPREADSHEET_ID)
-    worksheet = sh.sheet1
+    worksheet = sh.sheet2
     new_row = [cart, total_price, name, phone, email, pickup_date, store_type, store_name]
     worksheet.append_row(new_row, value_input_option='RAW')
 
