@@ -73,6 +73,8 @@ def submit():
         writer = csv.writer(f)
         writer.writerow([cart, total_price, name, phone, email, pickup_date, store_type, store_name])
 
+    write_order_to_sheets(cart, total_price, name, phone, email, pickup_date, store_type, store_name)
+
     # 寄信給客人
     send_email_to_customer(email, name, cart, total_price, pickup_date, store_type, store_name)
 
@@ -120,7 +122,7 @@ def send_email_to_staff(cart, total_price, name, phone, email, pickup_date, stor
 聯絡電話：{phone}
 電子郵件：{email}
 取貨日期：{pickup_date}
-取貨便利商店：{store_type} - {store_name} 門市
+取貨便利商店：{store_type}  {store_name} 門市
 """
 
     send_email(STAFF_EMAIL, subject, body)
