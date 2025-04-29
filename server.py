@@ -2,10 +2,28 @@ from flask import Flask, request, render_template, redirect, url_for
 import csv
 import os
 import smtplib
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
+
+# 設定Google Sheets認證
+scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+credentials = ServiceAccountCredentials.from_json_keyfile_name('asweet-credentials.json', scope)
+gc = gspread.authorize(credentials)
+
+# 這個是你的試算表ID
+SPREADSHEET_ID = '1BYi0FMpCKzXwfIIzsNKlvVDD9Bbyc3M0b3_RCF7QJJc'
+
+def write_order_to_sheets(cart, total_price, name, phone, email, pickup_date, store_type, store_name):
+    sh = gc.open_by_key(SPREADSHEET_ID)
+    worksheet = sh.sheet1  # 第一個工作表
+
+    # 寫一筆新資料
+    new_row = [cart, total_price, name, phone, email, pickup_date, store_type, store_name]
+    worksheet.append_row(new_row, value_input_option='RAW')
 
 # Email設定
 SMTP_SERVER = 'smtp.mail.me.com'
