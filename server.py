@@ -52,7 +52,7 @@ products = {
     "pearl": {
         "id": "pearl",
         "name": "珍珠奶茶冰淇淋蛋糕",
-        "image": "https://i.imgur.com/QeZjqvP.jpg",
+        "image": "https://hackmd.io/_uploads/rylaxj1egg.jpg",
         "short": "Q彈珍珠＋香濃奶茶，冰火交融的口感！",
         "detail": "使用北海道鮮奶油與熬煮6小時的黑糖珍珠製作，6吋/8吋皆可選擇，風味濃郁不膩。"
     },
