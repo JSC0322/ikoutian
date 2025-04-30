@@ -2,33 +2,92 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>感謝您的訂購 - 一口甜冰淇淋店</title>
     <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .thanks-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            text-align: center;
+        }
+        .thanks-title {
+            font-size: 2em;
+            color: #ff7043;
+            margin-bottom: 20px;
+        }
+        .cart-summary {
+            text-align: left;
+            font-size: 1.1em;
+            margin: 20px 0;
+            color: #444;
+        }
+        .support-info {
+            margin-top: 30px;
+            font-size: 0.95em;
+            color: #555;
+        }
+        .cart-btn {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1em;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .cart-btn:hover {
+            background-color: #ff3b2e;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>一口甜冰淇淋店</h1>
-        <nav>
-            <a href="/">首頁</a>
-            <a href="/products">所有商品</a>
-            <a href="/order">購物車</a>
-        </nav>
-    </header>
-    <main>
-        <section class="content">
-            <h2>感謝您的訂購！</h2>
-            <p>我們已收到您的訂單，請耐心等待通知取貨！</p>
-            <a href="/" class="cart-btn">返回首頁</a>
-        </section>
-        <script>
-            // 自動清空購物車
-            localStorage.removeItem('cart');
-        </script>
-    </main>
-    <footer>
-        <p>&copy; 2025 一口甜冰淇淋店. 版權所有.</p>
-        <p>商店地址 雲林縣北港鎮光復二路五之九號</p>
-    </footer>
+
+<header>
+    <h1>一口甜冰淇淋店</h1>
+</header>
+
+<main class="thanks-container">
+    <div class="thanks-title">感謝您的訂購！</div>
+
+    <div class="cart-summary">
+        <strong>您剛剛購買的商品：</strong>
+        <ul id="cart-items"></ul>
+        <p><strong>總金額：</strong><span id="total-price"></span> 元</p>
+    </div>
+
+    <div class="support-info">
+        若有疑問請來信 <strong>sweet@asweet.com.tw</strong><br>
+        或致電 <strong>0970-575-765</strong>
+    </div>
+
+    <a href="/" class="cart-btn">返回首頁</a>
+</main>
+
+<footer>
+    <p>&copy; 2025 一口甜冰淇淋店 All Rights Reserved.</p>
+</footer>
+
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cartList = document.getElementById('cart-items');
+    let totalPrice = 0;
+
+    cart.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name}（${item.size}）x${item.quantity} - $${item.price * item.quantity}`;
+        cartList.appendChild(li);
+        totalPrice += item.price * item.quantity;
+    });
+
+    document.getElementById('total-price').innerText = totalPrice;
+    localStorage.removeItem('cart'); // 清空購物車
+</script>
+
 </body>
 </html>
