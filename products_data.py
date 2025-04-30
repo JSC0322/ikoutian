@@ -9,8 +9,15 @@ products = {
     "matcha": {
         "id": "matcha",
         "name": "抹茶冰淇淋蛋糕",
-        "image": "https://i.imgur.com/8XXF8MP.jpg",
+        "image": "https://hackmd.io/_uploads/SyHmFikeeg.png",
         "short": "小山園抹茶＋紅豆內餡，苦甜層次豐富。",
         "detail": "採用日本宇治抹茶，搭配自家熬煮紅豆餡，成熟大人氣的推薦選擇。"
+    },
+    "berries": {
+        "id": "berries",
+        "name": "綜合莓果冰淇淋蛋糕",
+        "image": "https://hackmd.io/_uploads/rJdDPjkgge.jpg",
+        "short": "0000000000000000000",
+        "detail": "0000000000000000000000000000"
     }
 }
