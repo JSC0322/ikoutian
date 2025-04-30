@@ -69,10 +69,10 @@ products = {
 def products_page():
     return render_template('products.html', products=products)
 
-@app.route('/product/<id>')
+@app.route('/shop/<id>')
 def product_detail(id):
     if id in products:
-        return render_template('product.html', product=products[id])
+        return render_template('shop.html', product=products[id])
     else:
         return "找不到商品", 404
 
