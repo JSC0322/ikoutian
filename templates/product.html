@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ product.name }} - 一口甜冰淇淋店</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    .detail-container {
+      max-width: 800px;
+      margin: 50px auto;
+      text-align: center;
+    }
+    .detail-container img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+    }
+    .detail-container h2 {
+      margin-top: 20px;
+      color: #ff7043;
+    }
+    .detail-container p {
+      margin-top: 15px;
+      font-size: 1.1em;
+      color: #444;
+    }
+    .cart-btn {
+      background-color: #ff6f61;
+      color: white;
+      padding: 12px 24px;
+      margin-top: 30px;
+      text-decoration: none;
+      border-radius: 30px;
+      display: inline-block;
+    }
+    .cart-btn:hover {
+      background-color: #ff3b2e;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>一口甜冰淇淋店</h1>
+</header>
+
+<main class="detail-container">
+  <img src="{{ product.image }}" alt="{{ product.name }}">
+  <h2>{{ product.name }}</h2>
+  <p>{{ product.detail }}</p>
+  <a href="/order" class="cart-btn">前往購物車下單</a>
+</main>
+
+<footer>
+  <p>&copy; 2025 一口甜冰淇淋店 All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
