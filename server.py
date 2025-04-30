@@ -4,6 +4,7 @@ import os
 import json
 import smtplib
 import gspread
+from products_data import products
 from oauth2client.service_account import ServiceAccountCredentials
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -46,24 +47,6 @@ def save_order_to_csv(cart, total_price, name, phone, email, pickup_date, store_
 @app.route('/')
 def home():
     return render_template('index.html')
-
-# 模擬商品資料（之後可以讀JSON或資料庫）
-products = {
-    "pearl": {
-        "id": "pearl",
-        "name": "珍珠奶茶冰淇淋蛋糕",
-        "image": "https://hackmd.io/_uploads/rylaxj1egg.jpg",
-        "short": "Q彈珍珠＋香濃奶茶，冰火交融的口感！",
-        "detail": "使用北海道鮮奶油與熬煮6小時的黑糖珍珠製作，6吋/8吋皆可選擇，風味濃郁不膩。"
-    },
-    "matcha": {
-        "id": "matcha",
-        "name": "抹茶冰淇淋蛋糕",
-        "image": "https://i.imgur.com/8XXF8MP.jpg",
-        "short": "小山園抹茶＋紅豆內餡，苦甜層次豐富。",
-        "detail": "採用日本宇治抹茶，搭配自家熬煮紅豆餡，成熟大人氣的推薦選擇。"
-    }
-}
 
 @app.route('/products')
 def products_page():
