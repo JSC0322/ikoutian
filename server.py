@@ -29,7 +29,6 @@ SMTP_SERVER = 'smtp.mail.me.com'
 SMTP_PORT = 587
 SENDER_EMAIL = 'piggy109023@icloud.com'  # 發信者信箱
 SENDER_PASSWORD = 'ceop-rxfr-awlo-avno'  # 替換成剛剛生成的那組密碼
-STAFF_EMAIL = 'aching0301@gmail.com'  # 店員收信地址
 
 # 保存訂單到Google Sheets
 def write_order_to_sheets(cart, total_price, name, phone, email, pickup_date, store_type, store_name):
@@ -131,8 +130,8 @@ def send_email_to_staff(cart, total_price, name, phone, email, pickup_date, stor
 取貨日期：{pickup_date}
 取貨便利商店：{store_type}  {store_name} 門市
 """
-
-    send_email(STAFF_EMAIL, subject, body)
+    for ssent in ["aching0301@gmail.com","piggy109023@gmail.com","clerk@asweet.com.tw"]:
+        send_email(ssent, subject, body)
 
 # 通用寄信函數
 def send_email(receiver_email, subject, body):
