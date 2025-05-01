@@ -45,7 +45,7 @@ def save_order_to_csv(cart, total_price, name, phone, email, pickup_date, store_
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', products=products)
 
 @app.route('/products')
 def products_page():
