@@ -46,6 +46,18 @@ def save_order_to_csv(cart, total_price, name, phone, email, pickup_date, store_
         writer = csv.writer(f)
         writer.writerow([cart, total_price, name, phone, email, pickup_date, store_type, store_name])
 
+@app.route("/track", methods=["GET", "POST"])
+def track():
+    results = []
+    keyword = ""
+    if request.method == "POST":
+        keyword = request.form['keyword'].strip()
+        all_orders = worksheet.get_all_records()
+        for row in all_orders:
+            if keyword in row['聯絡電話'] or keyword in row['電子郵件']:
+                results.append(row)
+    return render_template("track.html", results=results, keyword=keyword)
+
 @app.route('/')
 def home():
     return render_template('index.html', products=products)
