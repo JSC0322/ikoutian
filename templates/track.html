@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>訂單查詢 - 一口甜冰淇淋店</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .order-card {
+            background-color: rgba(255,255,255,0.8);
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>查詢我的訂單</h1>
+</header>
+<main>
+    <form method="post" style="text-align:center;">
+        <input type="text" name="keyword" placeholder="請輸入電話或Email" value="{{ keyword }}" required>
+        <button type="submit">查詢</button>
+    </form>
+
+    {% if results %}
+        <h2 style="text-align:center;">找到以下訂單：</h2>
+        {% for order in results %}
+        <div class="order-card">
+            <p><strong>姓名：</strong>{{ order['姓名'] }}</p>
+            <p><strong>購物清單：</strong><br>{{ order['購物清單']|replace('\n', '<br>')|safe }}</p>
+            <p><strong>總金額：</strong>{{ order['總金額'] }} 元</p>
+            <p><strong>取貨日期：</strong>{{ order['取貨日期'] }}</p>
+            <p><strong>便利商店：</strong>{{ order['取貨便利商店種類'] }} - {{ order['便利商店店名'] }}</p>
+        </div>
+        {% endfor %}
+    {% elif keyword %}
+        <p style="text-align:center; color:red;">查無相關訂單，請確認輸入正確。</p>
+    {% endif %}
+</main>
+</body>
+</html>
