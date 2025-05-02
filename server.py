@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, session
+from flask_dance.contrib.google import make_google_blueprint, google
 import csv
 import os
 import json
@@ -10,6 +11,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
+
+app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
 
 # Google Sheet ID
 SPREADSHEET_ID = '1BYi0FMpCKzXwfIIzsNKlvVDD9Bbyc3M0b3_RCF7QJJc'
@@ -45,6 +48,39 @@ def save_order_to_csv(cart, total_price, name, phone, email, pickup_date, store_
     with open('orders.csv', 'a', newline='', encoding='utf-8') as f:
         writer = csv.writer(f)
         writer.writerow([cart, total_price, name, phone, email, pickup_date, store_type, store_name])
+
+# 設定 Google OAuth blueprint
+os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'  # 啟用 HTTP (local testing)
+google_bp = make_google_blueprint(
+    client_id=os.environ.get("GOOGLE_OAUTH_CLIENT_ID"),
+    client_secret=os.environ.get("GOOGLE_OAUTH_CLIENT_SECRET"),
+    redirect_to="profile"
+)
+app.register_blueprint(google_bp, url_prefix="/login")
+
+@app.route("/login")
+def login():
+    if not google.authorized:
+        return redirect(url_for("google.login"))
+    return redirect(url_for("profile"))
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect("/")
+
+@app.route("/profile")
+def profile():
+    if not google.authorized:
+        return redirect(url_for("google.login"))
+    resp = google.get("/oauth2/v2/userinfo")
+    assert resp.ok, resp.text
+    user_info = resp.json()
+    session['user'] = {
+        "email": user_info["email"],
+        "name": user_info.get("name", "")
+    }
+    return render_template("profile.html", user=session['user'])
 
 @app.route("/track", methods=["GET", "POST"])
 def track():
