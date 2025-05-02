@@ -54,7 +54,9 @@ def track():
         keyword = request.form['keyword'].strip()
         all_orders = worksheet.get_all_records()
         for row in all_orders:
-            if keyword in row['聯絡電話'] or keyword in row['電子郵件']:
+            phone = str(row.get('聯絡電話', ''))
+            email = str(row.get('電子郵件', ''))
+            if keyword in phone or keyword in email:
                 results.append(row)
     return render_template("track.html", results=results, keyword=keyword)
 
