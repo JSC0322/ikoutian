@@ -110,3 +110,7 @@ footer {
     border-radius: 15px;
     text-align: left;
 }
+.cart-btn.active {
+  background-color: #444 !important;
+}
+
