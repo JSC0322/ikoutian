@@ -11,7 +11,10 @@ from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
 
-# 讀取Google Sheets憑證（從環境變數）
+# Google Sheet ID
+SPREADSHEET_ID = '1BYi0FMpCKzXwfIIzsNKlvVDD9Bbyc3M0b3_RCF7QJJc'
+
+# Google Sheets 認證配置
 credentials_json = os.environ.get('GCP_CREDENTIALS')
 if credentials_json is None:
     raise ValueError("Missing GCP_CREDENTIALS environment variable")
@@ -21,8 +24,8 @@ scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/au
 credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict, scope)
 gc = gspread.authorize(credentials)
 
-# Google Sheet ID
-SPREADSHEET_ID = '1BYi0FMpCKzXwfIIzsNKlvVDD9Bbyc3M0b3_RCF7QJJc'
+sh = gc.open_by_key(SPREADSHEET_ID)
+worksheet = sh.sheet1
 
 # Email設定
 SMTP_SERVER = 'smtp.mail.me.com'
