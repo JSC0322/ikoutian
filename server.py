@@ -79,20 +79,17 @@ def logout():
 @app.route("/profile")
 def profile():
     if not google.authorized:
+        return redirect(url_for("google.login"))  # 沒登入就重導
+
+    try:
+        resp = google.get("/oauth2/v2/userinfo")
+        user_info = resp.json()
+    except TokenExpiredError:
+        # token 過期的話，清除 session 並重新登入
+        del google.token
         return redirect(url_for("google.login"))
 
-    resp = google.get("/oauth2/v2/userinfo")
-    user_info = resp.json()
-
-    print("【DEBUG】Google 回傳 user_info:", user_info)  # 👈 這行會在 Render logs 出現
-
-    email = user_info.get("email", "無法取得 Email")
-    name = user_info.get("name", "無法取得名字")
-
-    return render_template("profile.html", profile={
-        "name": name,
-        "email": email
-    })
+    return render_template("profile.html", user=user_info)
 
 @app.route("/track", methods=["GET", "POST"])
 def track():
