@@ -2,11 +2,61 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>會員資料</title>
+    <title>會員資料 - 一口甜冰淇淋店</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .profile-card {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .profile-card h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .profile-card p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .logout-btn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 10px 20px;
+            background-color: #ff6961;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            width: fit-content;
+        }
+    </style>
 </head>
 <body>
-    <h1>歡迎 {{ user.name }} 來到一口甜</h1>
-    <p><strong>Email:</strong> {{ user.email }}</p>
-    <a href="/logout">登出</a>
+
+<header>
+    <h1>一口甜冰淇淋店</h1>
+    <nav>
+        <a href="/">首頁</a>
+        <a href="/shop">商品</a>
+        <a href="/order">購物車</a>
+    </nav>
+</header>
+
+<main>
+    <div class="profile-card">
+        <h2>會員資料</h2>
+        <p><strong>姓名：</strong>{{ profile.name }}</p>
+        <p><strong>Email：</strong>{{ profile.email }}</p>
+        <a href="/logout" class="logout-btn">登出</a>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 一口甜冰淇淋店 All Rights Reserved.</p>
+</footer>
+
 </body>
 </html>
