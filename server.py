@@ -53,7 +53,11 @@ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'  # 啟用 HTTP (local testing)
 google_bp = make_google_blueprint(
     client_id=os.environ.get("GOOGLE_OAUTH_CLIENT_ID"),
     client_secret=os.environ.get("GOOGLE_OAUTH_CLIENT_SECRET"),
-    scope=["profile", "email"],
+    scope=[
+        "https://www.googleapis.com/auth/userinfo.profile",
+        "https://www.googleapis.com/auth/userinfo.email",
+        "openid"
+    ],
     redirect_to="profile"
 )
 
