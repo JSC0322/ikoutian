@@ -22,5 +22,13 @@ products = {
         "short": "0000000000000000000",
         "detail": "0000000000000000000000000000",
         "category": "ice_cream_cake"
+    },
+    "strawberry": {
+        "id": "strawberry",
+        "name": "草莓冰淇淋蛋糕",
+        "image": "https://hackmd.io/_uploads/SJYehVXlel.png",
+        "short": "0000000000000000000",
+        "detail": "0000000000000000000000000000",
+        "category": "ice_cream_cake"
     }
 }
