@@ -11,7 +11,6 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 app = Flask(__name__)
-
 app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
 
 # Google Sheet ID
@@ -54,8 +53,11 @@ os.environ['OAUTHLIB_INSECURE_TRANSPORT'] = '1'  # 啟用 HTTP (local testing)
 google_bp = make_google_blueprint(
     client_id=os.environ.get("GOOGLE_OAUTH_CLIENT_ID"),
     client_secret=os.environ.get("GOOGLE_OAUTH_CLIENT_SECRET"),
+    scope=["profile", "email"],
     redirect_to="profile"
 )
+
+# 註冊
 app.register_blueprint(google_bp, url_prefix="/login")
 
 @app.route("/login")
