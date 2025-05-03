@@ -20,7 +20,7 @@ products = {
         "name": "綜合莓果冰淇淋蛋糕",
         "image": "https://hackmd.io/_uploads/rJdDPjkgge.jpg",
         "short": "綜合莓果酸甜濃郁，搭配香濃冰淇淋與繽紛水果，層層口感，清爽又幸福。",
-        "detail": "0000000000000000000000000000",
+        "detail": "綜合莓果酸甜濃郁，搭配香濃冰淇淋與繽紛水果，層層口感，清爽又幸福。",
         "category": "ice_cream_cake"
     },
     "strawberry": {
@@ -31,9 +31,17 @@ products = {
         "detail": "草莓牛奶香甜融合，搭配繽紛水果與冰淇淋球，綿密滑順，入口滿是幸福滋味。",
         "category": "ice_cream_cake"
     },
-    "bask_cheese": {
-        "id": "bask_cheese",
-        "name": "巴斯克乳酪蛋糕",
+    "original_bask_cheese": {
+        "id": "original_bask_cheese",
+        "name": "巴斯克乳酪蛋糕 - 原味",
+        "image": "https://hackmd.io/_uploads/BkcVZLQggg.png",
+        "short": "濃郁綿密的乳酪香氣，表面微焦口感滑順。",
+        "detail": "慢火烘烤，外焦內嫩，是大人小孩都喜歡的經典乳酪蛋糕。",
+        "category": "cheesecake"
+    },
+    "brown_sugar_bask_cheese": {
+        "id": "brown_sugar_bask_cheese",
+        "name": "巴斯克乳酪蛋糕 - 黑糖麻糬",
         "image": "https://hackmd.io/_uploads/BkcVZLQggg.png",
         "short": "濃郁綿密的乳酪香氣，表面微焦口感滑順。",
         "detail": "慢火烘烤，外焦內嫩，是大人小孩都喜歡的經典乳酪蛋糕。",
