@@ -113,7 +113,12 @@ def home():
 @app.route('/products')
 def products_page():
     selected_category = request.args.get('category', 'ice_cream_cake')
-    filtered = {k: v for k, v in products.items() if v['category'] == selected_category}
+    
+    if selected_category == 'all':
+        filtered = products
+    else:
+        filtered = {k: v for k, v in products.items() if v['category'] == selected_category}
+    
     return render_template('products.html', products=filtered, selected=selected_category)
 
 @app.route('/shop/<id>')
