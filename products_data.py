@@ -27,7 +27,7 @@ products = {
         "id": "strawberry",
         "name": "草莓冰淇淋蛋糕",
         "image": "https://hackmd.io/_uploads/HJnt1r7eex.jpg",
-        "short": "0000000000000000000",
+        "short": "冰涼微甜的天然草莓🍓，幸福美味首選。",
         "detail": "0000000000000000000000000000",
         "category": "ice_cream_cake"
     }
