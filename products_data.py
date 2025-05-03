@@ -34,7 +34,7 @@ products = {
     "bask_cheese": {
         "id": "bask_cheese",
         "name": "巴斯克乳酪蛋糕",
-        "image": "https://hackmd.io/_uploads/HJnt1r7eex.jpg",
+        "image": "https://hackmd.io/_uploads/BkcVZLQggg.png",
         "short": "濃郁綿密的乳酪香氣，表面微焦口感滑順。",
         "detail": "慢火烘烤，外焦內嫩，是大人小孩都喜歡的經典乳酪蛋糕。",
         "category": "cheesecake"
