@@ -60,18 +60,7 @@
   <h2>{{ product.name }}</h2>
   <p style="color: #555;">{{ product.detail }}</p>
 
-  <div class="form-group">
-    <label for="size">選擇尺寸：</label>
-    <select id="size">
-      <option value="6">六吋（$980）</option>
-      <option value="8">八吋（$1480）</option>
-    </select>
-
-    <label for="quantity">數量：</label>
-    <input type="number" id="quantity" value="1" min="1" max="99">
-  </div>
-
-  <button class="cart-btn" onclick="addToCart()">加入購物車</button>
+  <button class="cart-btn" onclick="addToCart()">立即訂購</button>
 </main>
 
 <footer>
@@ -95,8 +84,7 @@
     });
 
     localStorage.setItem('cart', JSON.stringify(cart));
-    alert("已加入購物車！");
-    window.location.href = "/order";
+    window.open"https://forms.gle/PapFVSuz61kyKw9j8", "_blank";
   }
 </script>
 
