@@ -129,8 +129,9 @@ def product_detail(id):
         return "找不到商品", 404
 
 @app.route('/order')
-def order():
-    return render_template('order.html')
+def order_redirect():
+    return redirect("https://forms.gle/SLcyqaZC5Hrc5e8r8", target="_blank")
+    
 
 @app.route('/location')
 def location():
