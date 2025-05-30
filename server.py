@@ -101,8 +101,7 @@ def track():
         all_orders = worksheet.get_all_records()
         for row in all_orders:
             phone = str(row.get('聯絡電話', ''))
-            email = str(row.get('電子郵件', ''))
-            if keyword in phone or keyword in email:
+            if keyword in phone:
                 results.append(row)
     return render_template("track.html", results=results, keyword=keyword)
 
