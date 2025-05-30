@@ -145,7 +145,6 @@ def product_detail(id):
 @app.route('/order')
 def order_redirect():
     return redirect("https://forms.gle/SLcyqaZC5Hrc5e8r8", target="_blank")
-    
 
 @app.route('/location')
 def location():
