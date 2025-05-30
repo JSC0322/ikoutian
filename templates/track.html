@@ -21,10 +21,10 @@
         <a href="/">回首頁</a>
     </nav>
 </header>
+
 <main>
-    <a>24小時內的訂單可能查無資料</a>
     <form method="post" style="text-align:center;">
-        <input type="text" name="keyword" placeholder="請輸您的Email" value="{{ keyword }}" required>
+        <input type="text" name="keyword" placeholder="請輸入電話號碼" value="{{ keyword }}" required>
         <button type="submit">查詢</button>
     </form>
 
@@ -40,7 +40,7 @@
         </div>
         {% endfor %}
     {% elif keyword %}
-        <p style="text-align:center; color:red;">查無相關訂單，請確認輸入正確。</p>
+        <p style="text-align:center; color:red;">查無相關訂單，請確認您輸入的電話正確無誤。</p>
     {% endif %}
 </main>
 </body>
