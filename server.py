@@ -62,6 +62,21 @@ google_bp = make_google_blueprint(
     redirect_to="profile"
 )
 
+def normalize_phone(raw):
+    phone = str(raw).strip()
+    # 如果是科學記號或長度不對的數字
+    if "E+" in phone:
+        try:
+            phone = str(int(float(phone)))
+        except:
+            return ""
+    # 去掉所有非數字字符
+    phone = ''.join(filter(str.isdigit, phone))
+    # 如果是台灣手機，補上開頭的0（只要長度是9碼就補0）
+    if len(phone) == 9:
+        phone = "0" + phone
+    return phone
+
 # 註冊
 app.register_blueprint(google_bp, url_prefix="/login")
 
@@ -100,7 +115,7 @@ def track():
         keyword = request.form['keyword'].strip()
         all_orders = worksheet.get_all_records()
         for row in all_orders:
-            phone = str(row.get('聯絡電話', ''))
+            phone = normalize_phone(row.get('聯絡電話', ''))
             if keyword in phone:
                 results.append(row)
     return render_template("track.html", results=results, keyword=keyword)
