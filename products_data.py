@@ -4,7 +4,7 @@ products = {
         "name": "珍珠奶茶冰淇淋蛋糕",
         "image": "https://hackmd.io/_uploads/rylaxj1egg.jpg",
         "short": "Q彈珍珠＋香濃奶茶，冰火交融的口感！",
-        "detail": "使用北海道鮮奶油與熬煮6小時的黑糖珍珠製作，6吋/8吋皆可選擇，風味濃郁不膩。",
+        "detail": "現熬茶香融合奶香滑順，搭配Q彈珍珠，還原最熟悉的珍珠奶茶風味冰淇淋蛋糕。",
         "category": "ice_cream_cake"
     },
     "matcha": {
