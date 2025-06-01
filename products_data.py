@@ -26,7 +26,7 @@ products = {
     "berries": {
         "id": "berries",
         "name": "綜合莓果冰淇淋蛋糕",
-        "image": "https://hackmd.io/_uploads/rJdDPjkgge.jpg",
+        "image": "https://lh4.googleusercontent.com/-Sa_GCkb3RH317i07sQxtxez-dt0Jn6YABuaiP-OD7og3zZoSglAaY6fcN1tF0jsi9zlLELCZ9NHoAsIMCOpTv2RGJ0-aMRPMXYBIgw0Bsqqu4QquQDYdX4w2Oa3O8JTc7aDKulhY-mN7RqMDjdfBQsvgmealJTZyiOzaYK1tP9iZ0yvbw=w260?key=f3LMdrebQNMgqn96gxJSfw",
         "short": "綜合莓果酸甜濃郁，搭配香濃冰淇淋與繽紛水果，層層口感，清爽又幸福。",
         "detail": "綜合莓果酸甜濃郁，搭配香濃冰淇淋與繽紛水果，層層口感，清爽又幸福。",
         "category": "ice_cream_cake"
