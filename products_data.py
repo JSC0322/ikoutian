@@ -54,5 +54,13 @@ products = {
         "short": "香甜草莓遇上濃醇巧克力，酸甜層次口感超迷人。",
         "detail": "使用新鮮草莓製成冰淇淋，酸甜清香，搭配法芙娜巧克力冰淇淋的濃郁苦甜，兩種風味交織出完美層次。底層酥脆餅乾增添口感，是一款視覺與味覺兼具的夢幻冰淇淋蛋糕。",
         "category": "ice_cream_cake"
-    }
+    },
+    "platter": {
+        "id": "platter",
+        "name": "冰淇淋蛋糕拼盤",
+        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "short": "多種口味一次滿足，冰淇淋蛋糕拼盤超級療癒。",
+        "detail": "精選多款人氣口味冰淇淋蛋糕組成拼盤。色彩繽紛、口感豐富，適合聚會分享或送禮，是冰友最愛的高人氣甜點選擇。",
+        "category": "ice_cream_cake"
+    },
 }
