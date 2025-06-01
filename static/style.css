@@ -94,9 +94,6 @@ footer {
     border-radius: 15px;
     text-align: left;
 }
-.cart-btn.active {
-  background-color: #444 !important;
-}
 .carousel {
     width: 80%;
     margin: 0 auto;
@@ -107,7 +104,7 @@ footer {
 .carousel-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 2 / 1;
 }
 
 .carousel-image {
