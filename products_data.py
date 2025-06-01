@@ -1,6 +1,6 @@
 products = {
     "vanilla-chocolate": {
-        "id": "vanillachocolate",
+        "id": "vanilla-chocolate",
         "name": "香草巧克力冰淇淋蛋糕",
         "image": "https://lh6.googleusercontent.com/PpNP3MtQr3bDhgEBBVWBt6x9gH-6X7x49EQ87n_ZcuVkQm-pjKzkAjVTy6wyh_k20cgXj28-rLkORnvNSMdZN7y2PB_vIYMEk1NLGBU7R0o11MmtOeuZiwbj_9F6PvtnpkHd7nex99HsASgTNK-9J8kj99cmQJiSZR_nv7LBQyxCjMMJhQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
         "short": "香草的柔滑遇上濃郁巧克力，層層交融，甜而不膩，入口即化的經典冰淇淋蛋糕。",
@@ -8,7 +8,7 @@ products = {
         "category": "ice_cream_cake"
     },
     "pearl-milk-tea": {
-        "id": "pearlmilktea",
+        "id": "pearl-milk-tea",
         "name": "珍珠奶茶冰淇淋蛋糕",
         "image": "https://hackmd.io/_uploads/rylaxj1egg.jpg",
         "short": "Q彈珍珠＋香濃奶茶，冰火交融的口感！",
@@ -32,7 +32,7 @@ products = {
         "category": "ice_cream_cake"
     },
     "milk-strawberry": {
-        "id": "milkstrawberry",
+        "id": "milk-strawberry",
         "name": "草莓牛奶冰淇淋蛋糕",
         "image": "https://hackmd.io/_uploads/HJnt1r7eex.jpg",
         "short": "冰涼微甜的天然草莓🍓，幸福美味首選。",
@@ -40,7 +40,7 @@ products = {
         "category": "ice_cream_cake"
     },
     "milk-peanut": {
-        "id": "milkpeanut",
+        "id": "milk-peanut",
         "name": "花生牛奶冰淇淋蛋糕",
         "image": "https://lh5.googleusercontent.com/fEypdajlNOr_VHB-PA5nHUxbk--7tUSJT4wagCbmWQaoKGAen6BCjTthSh77Uo9ciAQKJ-dQV2EpdqQFIqNGdYGDf7tQotFC8JrXx9q5vqUcTSQ15hsCtOxLkvMOIv7CKKKwiPWUnEs8lRWcHGEMwDXQXvP3HnRoPdiizrNmZdyqXqLkgA=w260?key=f3LMdrebQNMgqn96gxJSfw",
         "short": "濃郁花生醬融合奶香，綿密香滑、香氣十足。",
@@ -48,7 +48,7 @@ products = {
         "category": "ice_cream_cake"
     },
     "chocolate-strawberry": {
-        "id": "milkstrawberry",
+        "id": "milk-strawberry",
         "name": "草莓巧克力冰淇淋蛋糕",
         "image": "https://lh4.googleusercontent.com/jpxOLDKsRmTNT9x5cK6MnfQk9Px4zlU588_MtjQu7BmE33oBVrlWOyFBJMOcDD0_biwWSwhPLnqH1WY10tyfmJ8AfqgPMF6yx7T3caXa7WpKkEuZ2asY4GG-Vs91lTNqVy8oFftNfrZJ7qoXcMjNdWlZYqjjyooMi_PN14qykb6RGlMLCA=w260?key=f3LMdrebQNMgqn96gxJSfw",
         "short": "香甜草莓遇上濃醇巧克力，酸甜層次口感超迷人。",
