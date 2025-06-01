@@ -6,54 +6,44 @@ body {
     background-size: cover;
     color: #fff;
 }
-
 header {
     background-color: rgba(255, 174, 0, 0.9);
     padding: 20px;
     text-align: center;
 }
-
 header h1 {
     margin: 0;
     font-size: 2.5em;
 }
-
 nav {
     margin-top: 10px;
 }
-
 nav a {
     color: #fff;
     padding: 10px 15px;
     text-decoration: none;
     font-weight: bold;
 }
-
 nav a:hover {
     background-color: rgba(255, 100, 0, 0.8);
     border-radius: 5px;
 }
-
 main {
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.5);
 }
-
 section.news, section.hot-products {
     margin-bottom: 40px;
     text-align: center;
 }
-
 section.news ul {
     list-style: none;
     padding: 0;
 }
-
 section.news li {
     margin: 10px 0;
     font-size: 1.2em;
 }
-
 .hot-product-card {
     background-color: rgba(255, 255, 255, 0.2);
     margin: 20px auto;
@@ -61,7 +51,6 @@ section.news li {
     width: 300px;
     border-radius: 15px;
 }
-
 .cart-btn {
     background-color: #ff6f61;
     color: white;
@@ -73,24 +62,20 @@ section.news li {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
 .cart-btn:hover {
     background-color: #ff3b2e;
 }
-
 footer {
     text-align: center;
     padding: 10px;
     background-color: rgba(255, 174, 0, 0.9);
 }
-
 .product-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 20px;
 }
-
 .product-card {
     background-color: rgba(255, 255, 255, 0.2);
     width: 300px;
@@ -101,7 +86,6 @@ footer {
 .order-section {
     text-align: center;
 }
-
 .order-card {
     background-color: rgba(255, 255, 255, 0.2);
     margin: 20px auto;
@@ -112,5 +96,26 @@ footer {
 }
 .cart-btn.active {
   background-color: #444 !important;
+}
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+.carousel-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+.carousel-image.active {
+    opacity: 1;
 }
 
