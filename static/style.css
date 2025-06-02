@@ -103,8 +103,7 @@ footer {
 
 .carousel-container {
     position: relative;
-    width: 100%;
-    aspect-ratio: 2 / 1;
+    width: 50%;
 }
 
 .carousel-image {
