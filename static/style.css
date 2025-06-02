@@ -104,6 +104,7 @@ footer {
 .carousel-container {
     position: relative;
     width: 50%;
+    height: 300px;
 }
 
 .carousel-image {
