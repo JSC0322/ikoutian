@@ -48,7 +48,7 @@ products = {
         "category": "ice_cream_cake"
     },
     "chocolate-strawberry": {
-        "id": "milk-strawberry",
+        "id": "chocolate-strawberry",
         "name": "草莓巧克力冰淇淋蛋糕",
         "image": "https://lh4.googleusercontent.com/jpxOLDKsRmTNT9x5cK6MnfQk9Px4zlU588_MtjQu7BmE33oBVrlWOyFBJMOcDD0_biwWSwhPLnqH1WY10tyfmJ8AfqgPMF6yx7T3caXa7WpKkEuZ2asY4GG-Vs91lTNqVy8oFftNfrZJ7qoXcMjNdWlZYqjjyooMi_PN14qykb6RGlMLCA=w260?key=f3LMdrebQNMgqn96gxJSfw",
         "short": "香甜草莓遇上濃醇巧克力，酸甜層次口感超迷人。",
