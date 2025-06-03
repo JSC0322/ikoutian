@@ -101,10 +101,10 @@ footer {
 }
 
 .carousel-container {
-    position: center;
-    width: 100%;
-    height: 300px;
-    aspect-ratio: 1 / 1;
+    width: 500px;
+    height: 500px;
+    position: relative;
+    margin: auto;
 }
 
 .carousel-image {
