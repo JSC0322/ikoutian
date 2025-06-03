@@ -1,4 +1,12 @@
 products = {
+    "berries": {
+        "id": "berries",
+        "name": "綜合莓果冰淇淋蛋糕",
+        "image": "https://lh4.googleusercontent.com/-Sa_GCkb3RH317i07sQxtxez-dt0Jn6YABuaiP-OD7og3zZoSglAaY6fcN1tF0jsi9zlLELCZ9NHoAsIMCOpTv2RGJ0-aMRPMXYBIgw0Bsqqu4QquQDYdX4w2Oa3O8JTc7aDKulhY-mN7RqMDjdfBQsvgmealJTZyiOzaYK1tP9iZ0yvbw=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "short": "綜合莓果酸甜濃郁，搭配香濃冰淇淋與繽紛水果，層層口感，清爽又幸福。",
+        "detail": "綜合莓果酸甜濃郁，搭配香濃冰淇淋與繽紛水果，層層口感，清爽又幸福。",
+        "category": "ice_cream_cake"
+    },
     "vanilla-chocolate": {
         "id": "vanilla-chocolate",
         "name": "香草巧克力冰淇淋蛋糕",
@@ -13,22 +21,6 @@ products = {
         "image": "https://hackmd.io/_uploads/rylaxj1egg.jpg",
         "short": "Q彈珍珠＋香濃奶茶，冰火交融的口感！",
         "detail": "現熬茶香融合奶香滑順，搭配Q彈珍珠，還原最熟悉的珍珠奶茶冰淇淋蛋糕。",
-        "category": "ice_cream_cake"
-    },
-    "matcha": {
-        "id": "matcha",
-        "name": "小山園抹茶拿鐵冰淇淋蛋糕",
-        "image": "https://hackmd.io/_uploads/SyHmFikeeg.png",
-        "short": "小山園抹茶＋紅豆內餡，苦甜層次豐富。",
-        "detail": "採用日本宇治抹茶，搭配自家熬煮紅豆餡，成熟大人氣的推薦選擇。",
-        "category": "ice_cream_cake"
-    },
-    "berries": {
-        "id": "berries",
-        "name": "綜合莓果冰淇淋蛋糕",
-        "image": "https://lh4.googleusercontent.com/-Sa_GCkb3RH317i07sQxtxez-dt0Jn6YABuaiP-OD7og3zZoSglAaY6fcN1tF0jsi9zlLELCZ9NHoAsIMCOpTv2RGJ0-aMRPMXYBIgw0Bsqqu4QquQDYdX4w2Oa3O8JTc7aDKulhY-mN7RqMDjdfBQsvgmealJTZyiOzaYK1tP9iZ0yvbw=w260?key=f3LMdrebQNMgqn96gxJSfw",
-        "short": "綜合莓果酸甜濃郁，搭配香濃冰淇淋與繽紛水果，層層口感，清爽又幸福。",
-        "detail": "綜合莓果酸甜濃郁，搭配香濃冰淇淋與繽紛水果，層層口感，清爽又幸福。",
         "category": "ice_cream_cake"
     },
     "milk-strawberry": {
@@ -53,6 +45,14 @@ products = {
         "image": "https://lh4.googleusercontent.com/jpxOLDKsRmTNT9x5cK6MnfQk9Px4zlU588_MtjQu7BmE33oBVrlWOyFBJMOcDD0_biwWSwhPLnqH1WY10tyfmJ8AfqgPMF6yx7T3caXa7WpKkEuZ2asY4GG-Vs91lTNqVy8oFftNfrZJ7qoXcMjNdWlZYqjjyooMi_PN14qykb6RGlMLCA=w260?key=f3LMdrebQNMgqn96gxJSfw",
         "short": "香甜草莓遇上濃醇巧克力，酸甜層次口感超迷人。",
         "detail": "使用新鮮草莓製成冰淇淋，酸甜清香，搭配法芙娜巧克力冰淇淋的濃郁苦甜，兩種風味交織出完美層次。底層酥脆餅乾增添口感，是一款視覺與味覺兼具的夢幻冰淇淋蛋糕。",
+        "category": "ice_cream_cake"
+    },
+    "matcha": {
+        "id": "matcha",
+        "name": "小山園抹茶拿鐵冰淇淋蛋糕",
+        "image": "https://hackmd.io/_uploads/SyHmFikeeg.png",
+        "short": "小山園抹茶＋紅豆內餡，苦甜層次豐富。",
+        "detail": "採用日本宇治抹茶，搭配自家熬煮紅豆餡，成熟大人氣的推薦選擇。",
         "category": "ice_cream_cake"
     },
     "platter": {
