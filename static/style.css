@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #333; /* 偏白的淺橘色 */
+    background-color: #888; /* 偏白的淺橘色 */
     color: #fff; /* 文字改深灰，提升可讀性 */
 }
 header {
