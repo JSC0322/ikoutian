@@ -2,9 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: url('https://hackmd.io/_uploads/SyRSJHMggg.png') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
+    background-color: #FFF4E6; /* 偏白的淺橘色 */
+    color: #333; /* 文字改深灰，提升可讀性 */
 }
 header {
     background-color: rgba(255, 174, 0, 0.9);
