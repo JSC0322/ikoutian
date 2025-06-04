@@ -188,17 +188,7 @@ def send_email_to_customer(customer_email, name, cart, total_price, pickup_date,
 # 這裡是寄給店員的信
 def send_email_to_staff(cart, total_price, name, phone, email, pickup_date, store_type, store_name):
     subject = "新訂單通知 - 一口甜冰淇淋店"
-    body = f"""
-有新訂單了！
-
-購物清單：{cart}
-總金額：{total_price} 元
-姓名：{name}
-聯絡電話：{phone}
-電子郵件：{email}
-取貨日期：{pickup_date}
-取貨便利商店：{store_type}  {store_name} 門市
-"""
+    body =
     for ssent in ["aching0301@gmail.com","piggy109023@gmail.com","clerk@asweet.com.tw"]:
         send_email(ssent, subject, body)
 
