@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://asweet.com.tw/sitemap.xml
