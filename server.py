@@ -180,22 +180,7 @@ def thanks():
 # 這裡是寄給客人的信
 def send_email_to_customer(customer_email, name, cart, total_price, pickup_date, store_type, store_name):
     subject = "您的訂單已收到 - 一口甜冰淇淋店"
-    body = f"""
-親愛的 {name} 先生/小姐，您好：
-
-感謝您訂購我們的冰淇淋蛋糕！
-以下是您的訂單資訊：
-
-購物清單：{cart}
-總金額：{total_price} 元
-取貨日期：{pickup_date}
-取貨便利商店：{store_type} - {store_name} 門市
-
-如有任何問題，請聯絡我們。
-祝您有個美好的一天！
-
-一口甜冰淇淋店
-"""
+    body =
 
     send_email(customer_email, subject, body)
 
