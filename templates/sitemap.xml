@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://asweet.com.tw/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://asweet.com.tw/products</loc>
+  </url>
+  <url>
+    <loc>https://asweet.com.tw/shop/vanilla-chocolate</loc>
+  </url>
+  <url>
+    <loc>https://asweet.com.tw/shop/berries</loc>
+  </url>
+  <url>
+    <loc>https://asweet.com.tw/shop/pearl-milk-tea</loc>
+  </url>
+  <url>
+    <loc>https://asweet.com.tw/shop/matcha</loc>
+  </url>
+   <!-- 加上其他重要頁面 -->
+</urlset>
