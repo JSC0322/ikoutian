@@ -14,6 +14,7 @@ from oauthlib.oauth2 import TokenExpiredError
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
 
+"""
 # Google Sheet ID
 SPREADSHEET_ID = '1BYi0FMpCKzXwfIIzsNKlvVDD9Bbyc3M0b3_RCF7QJJc'
 
@@ -106,7 +107,7 @@ def profile():
         return redirect(url_for("google.login"))
 
     return render_template("profile.html", user=user_info)
-
+    
 @app.route("/track", methods=["GET", "POST"])
 def track():
     results = []
@@ -119,6 +120,7 @@ def track():
             if keyword in phone:
                 results.append(row)
     return render_template("track.html", results=results, keyword=keyword)
+"""
 
 @app.route('/')
 def home():
@@ -142,14 +144,10 @@ def product_detail(id):
     else:
         return "找不到商品", 404
 
-@app.route('/order')
-def order_redirect():
-    return redirect("https://forms.gle/SLcyqaZC5Hrc5e8r8", target="_blank")
-
 @app.route('/location')
 def location():
     return render_template('location.html')
-
+"""
 @app.route('/submit', methods=['POST'])
 def submit():
     cart = request.form['cart']
@@ -171,12 +169,14 @@ def submit():
     send_email_to_staff(cart, total_price, name, phone, email, pickup_date, store_type, store_name)
 
     return redirect(url_for('thanks'))
-
+"""
 
 @app.route('/thanks')
 def thanks():
     return render_template('thanks.html')
 
+
+"""
 # 這裡是寄給客人的信
 def send_email_to_customer(customer_email, name, cart, total_price, pickup_date, store_type, store_name):
     subject = "您的訂單已收到 - 一口甜冰淇淋店"
@@ -230,6 +230,8 @@ def send_email(receiver_email, subject, body):
         server.starttls()
         server.login(SENDER_EMAIL, SENDER_PASSWORD)
         server.send_message(message)
+
+"""
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
