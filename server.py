@@ -36,6 +36,10 @@ def product_detail(id):
     else:
         return "找不到商品", 404
 
+@app.route("/activity")
+def activity_page():
+    return render_template("activity.html")
+
 @app.route('/location')
 def location():
     return render_template('location.html')
