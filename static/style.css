@@ -99,14 +99,12 @@ footer {
     overflow: hidden;
     position: relative;
 }
-
 .carousel-container {
     width: 380px;
     height: 400px;
     position: relative;
     margin: auto;
 }
-
 .carousel-image {
     position: absolute;
     top: 0;
@@ -117,8 +115,80 @@ footer {
     opacity: 0;
     transition: opacity 2s ease;
 }
-
 .carousel-image.active {
     opacity: 1;
+}
+.banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.banner img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  display: block;
+}
+.banner-text {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  background: rgba(0,0,0,0.45);
+  padding: 10px 20px;
+  border-radius: 12px;
+}
+
+/* 活動區塊 */
+.events {
+  padding: 40px 20px;
+}
+.events h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #ff7043;
+}
+.event-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.event-card.show { /* Intersection Observer 觸發 */
+  opacity: 1;
+  transform: translateY(0);
+}
+.event-card img {
+  width: 100%;
+  max-width: 320px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+@media (min-width: 600px) {
+  .event-card img { border-radius: 12px 0 0 12px; }
+}
+.event-info {
+  flex: 1;
+  padding: 20px;
+}
+.event-date,
+.event-place { font-weight: bold; margin: 4px 0; }
+.event-desc { margin: 10px 0 15px; line-height: 1.5; }
+.cart-btn.small { padding: 8px 16px; font-size: 0.9em; }
+
+/* 導覽列高亮 */
+nav .active-link {
+  background-color: rgba(255, 100, 0, 0.8);
+  border-radius: 5px;
 }
 
