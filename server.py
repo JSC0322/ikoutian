@@ -40,14 +40,6 @@ def product_detail(id):
 def activity_page():
     return render_template("activity.html")
 
-@app.route('/location')
-def location():
-    return render_template('location.html')
-
-@app.route('/thanks')
-def thanks():
-    return render_template('thanks.html')
-
 @app.route("/sitemap.xml")
 def sitemap():
     return app.send_static_file("sitemap.xml")
@@ -55,7 +47,14 @@ def sitemap():
 @app.route("/robots.txt")
 def robots():
     return app.send_static_file("robots.txt")
+    
+@app.route('/location')
+def location():
+    return render_template('location.html')
 
+@app.route('/thanks')
+def thanks():
+    return render_template('thanks.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
