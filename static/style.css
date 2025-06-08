@@ -140,8 +140,6 @@ footer {
   padding: 10px 20px;
   border-radius: 12px;
 }
-
-/* 活動區塊 */
 .events {
   padding: 40px 20px;
 }
@@ -186,7 +184,6 @@ footer {
 .event-desc { margin: 10px 0 15px; line-height: 1.5; }
 .cart-btn.small { padding: 8px 16px; font-size: 0.9em; }
 
-/* 導覽列高亮 */
 nav .active-link {
   background-color: rgba(255, 100, 0, 0.8);
   border-radius: 5px;
