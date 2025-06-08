@@ -188,4 +188,26 @@ nav .active-link {
   background-color: rgba(255, 100, 0, 0.8);
   border-radius: 5px;
 }
+.white-box {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.white-box h2 {
+  color: #ff7043;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.white-box p,
+.white-box ul {
+  font-size: 1.1em;
+  color: #666;
+  line-height: 1.6;
+}
+.white-box ul {
+  padding-left: 20px;
+}
 
