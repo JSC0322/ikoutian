@@ -64,6 +64,11 @@ def thanks():
 def about():
     return render_template('about.html')
 
+@app.route('/wp-includes/<path:path>')
+@app.route('/media/<path:path>')
+def block_scan(path):
+    return 'Not Found', 404
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
     app.run(host='0.0.0.0', port=port)
