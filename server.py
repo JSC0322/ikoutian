@@ -43,9 +43,9 @@ def product_detail(id):
     else:
         return "找不到商品", 404
 
-@app.route("/activity")
+@app.route('/activity')
 def activity_page():
-    return render_template("activity.html")
+    return render_template('activity.html', activities=activities)
 
 @app.route("/sitemap.xml")
 def sitemap():
