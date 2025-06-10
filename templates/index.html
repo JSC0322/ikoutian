@@ -43,7 +43,6 @@
         </ul>
     </section>
 
-    
     <section class="hot-products">
         <h2>熱賣商品推薦</h2>
         <div class="hot-product-card">
@@ -58,13 +57,17 @@
         </div>
     </section>
     <section class="hot-products">
-        <h2>特別活動</h2>
+    <h2>最新活動</h2>
+        {% if latest_activity %}
         <div class="hot-product-card">
-            <h3>榴槤冰棒</h3>
-            <p>濃郁榴槤果肉製成，無香料無色素，入口香滑濃厚，榴槤控絕對愛不釋手！</p>
-            <a href="https://www.facebook.com/share/p/16ajBM11A5/" class="cart-btn" target="_blank">詳情請見臉書粉絲團</a>
-            <p>廣告</p>
+            <h3>{{ latest_activity.title }}</h3>
+            <img src="{{ latest_activity.image }}" alt="{{ latest_activity.title }}" style="width:100%;max-width:300px;">
+            <p>{{ latest_activity.description }}</p>
+            <a href="{{ latest_activity.url }}" class="cart-btn">詳情請見臉書粉絲團</a>
         </div>
+        {% else %}
+        <p>目前沒有進行中的活動</p>
+        {% endif %}
     </section>
 
 </main>
