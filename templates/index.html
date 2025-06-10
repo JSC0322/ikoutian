@@ -63,7 +63,7 @@
             <h3>{{ latest_activity.title }}</h3>
             <img src="{{ latest_activity.image }}" alt="{{ latest_activity.title }}" style="width:100%;max-width:300px;">
             <p>{{ latest_activity.description }}</p>
-            <a href="{{ latest_activity.url }}" class="cart-btn" target="_blank">詳情請見臉書粉絲團</a>
+            <a href="{{ latest_activity.url }}" target="_blank" class="cart-btn">詳情請見臉書粉絲團</a>
         </div>
         {% else %}
         <p>目前沒有進行中的活動</p>
