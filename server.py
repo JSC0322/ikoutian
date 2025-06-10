@@ -16,6 +16,9 @@ app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
 
 @app.route('/')
 def home():
+    today = datetime.today().date()
+    valid_activities = [a for a in activities if datetime.strptime(a['end_date'], "%Y-%m-%d").date() >= today]
+    latest_activity = valid_activities[0] if valid_activities else None
     return render_template('index.html', products=products)
 
 @app.route('/products')
