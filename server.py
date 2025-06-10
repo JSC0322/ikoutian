@@ -1,12 +1,12 @@
 from flask import Flask, request, render_template, redirect, url_for, session, send_from_directory
 from flask_dance.contrib.google import make_google_blueprint, google
+from products_data import products, activities
 from datetime import datetime
 import csv
 import os
 import json
 import smtplib
 import gspread
-import products_data
 from oauth2client.service_account import ServiceAccountCredentials
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
