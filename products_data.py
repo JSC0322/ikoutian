@@ -68,7 +68,7 @@ activities = [
     {
         "title": "榴槤冰棒限時開賣",
         "description": "濃郁榴槤果肉製成，無香料無色素，入口香滑濃厚，榴槤控絕對愛不釋手！",
-        "url": "https://www.facebook.com/share/p/1AMd7Xpuh7/" target="_blank",
+        "url": "https://www.facebook.com/share/p/1AMd7Xpuh7/",
         "image": "https://scontent.frmq2-1.fna.fbcdn.net/v/t39.30808-6/505995361_1121394480006892_3513561220643511742_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=sE6Tylg5WT0Q7kNvwFGzCOn&_nc_oc=Adn0NA-grkyFT--rRTmf4WQgN5_pszsNe1g4WZeiWAVLcGM0f6jGc1aZZbZP-oUd1h0&_nc_zt=23&_nc_ht=scontent.frmq2-1.fna&_nc_gid=XIernDTHnqb_EyNvo2kqSg&oh=00_AfPIcx1fidUdzDNXaLlCr75e8YRHaMOR681nfIb-3iP1Nw&oe=684E01A0",
         "start_date": "2025-06-10",
         "end_date": "2025-06-20"
