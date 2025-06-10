@@ -2,71 +2,34 @@
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>一口甜冰淇淋｜活動快訊</title>
-    <link rel="icon" href="/static/favicon.jpg" type="image/jpeg">
+    <title>活動資訊｜一口甜冰淇淋</title>
     <link rel="stylesheet" href="/static/style.css">
-    <meta name="description" content="一口甜冰淇淋 - 最新活動、快閃優惠、工作坊與市集資訊一次掌握！">
-    <meta name="keywords" content="一口甜, 活動, 市集, 冰淇淋工作坊, 快閃, 優惠">
-    <meta name="author" content="一口甜冰淇淋">
 </head>
 <body>
+    <header>
+        <h1>活動資訊</h1>
+        <nav>
+            <a href="/">回首頁</a>
+        </nav>
+    </header>
 
-<header>
-    <h1>一口甜冰淇淋</h1>
-    <nav>
-        <a href="/">首頁</a>
-        <a href="/products?category=all">所有商品</a>
-        <a href="/activity" class="active-link">最新活動</a>
-        <a href="https://forms.gle/PapFVSuz61kyKw9j8" target="_blank">立即訂購</a>
-    </nav>
-</header>
-
-<main>
-    <!-- hero banner：可改任意活動主視覺 -->
-<!--     <section class="banner">
-        <img src="https://i.imgur.com/1JzD1n9.jpg" alt="活動主視覺：夏日快閃冰淇淋節">
-        <div class="banner-text">
-            <h2>夏日快閃冰淇淋節</h2>
-            <p>限時三天・北港文化路廣場 ・ 6/14-6/16</p>
-            <a href="#events" class="cart-btn">看活動詳情</a>
-        </div>
-    </section> -->
-
-    <!-- 活動列表 -->
-    <section id="events" class="events">
-        <h2>近期活動</h2>
-
-        <!-- 單一活動卡片 -->
-        <div class="event-card">
-            <img src="https://i.imgur.com/MQaPw3w.jpg" alt="父親節預購早鳥">
-            <div class="event-info">
-                <h3>超值冰棒禮盒</h3>
-                <p class="event-date">即日起～2025/07/20</p>
-                <p class="event-place">線上限定</p>
-                <p class="event-desc">.</p>
-                <a href="/products?category=father-day" class="cart-btn small">立即訂購</a>
+    <main>
+        <section class="hot-products">
+            <h2>目前活動</h2>
+            {% for act in activities %}
+            <div class="hot-product-card">
+                <h3>{{ act.title }}</h3>
+                <img src="{{ act.image }}" alt="{{ act.title }}" style="width:100%;max-width:300px;">
+                <p>{{ act.description }}</p>
+                <p>活動期間：{{ act.start_date }} ~ {{ act.end_date }}</p>
+                <a href="{{ act.url }}" class="cart-btn">了解更多</a>
             </div>
-        </div>
+            {% endfor %}
+        </section>
+    </main>
 
-    </section>
-</main>
-
-<footer>
-    <p>&copy; 2025 一口甜冰淇淋 All Rights Reserved.</p>
-</footer>
-
-<!-- 可選：活動卡片滑入效果 -->
-<script>
-    // 簡單 Intersection Observer，滾動到視窗自動 fade-in
-    const cards = document.querySelectorAll('.event-card');
-    const io = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add('show');
-        });
-    }, { threshold: 0.2 });
-    cards.forEach(card => io.observe(card));
-</script>
-
+    <footer>
+        <p>&copy; 2025 一口甜冰淇淋 All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
