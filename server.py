@@ -23,7 +23,7 @@ def home():
         if datetime.strptime(a['end_date'], "%Y-%m-%d").date() >= today
     ]
     latest_activity = valid_activities[0] if valid_activities else None
-    return render_template('index.html', products=products_data.products, latest_activity=latest_activity)
+    return render_template('index.html', products=products, latest_activity=latest_activity)
     
 @app.route('/products')
 def products_page():
