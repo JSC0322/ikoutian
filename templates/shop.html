@@ -95,19 +95,20 @@
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
     const size = document.getElementById('size').value;
     const quantity = parseInt(document.getElementById('quantity').value);
-
-    let price = size === '6' ? 980 : 1480;
+    const priceMap = {{ product.sizes | tojson }};
+    const price = priceMap[size];
 
     cart.push({
       id: "{{ product.id }}",
       name: "{{ product.name }}",
-      size: size + "吋",
+      size: size + ' 吋',
       quantity: quantity,
       price: price
     });
 
     localStorage.setItem('cart', JSON.stringify(cart));
-    window.open("https://forms.gle/PapFVSuz61kyKw9j8", "_blank");
+    alert('已加入購物車！');
+    window.location.href = '/cart.html';
   }
 </script>
 
