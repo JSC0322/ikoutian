@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for, session, send_from_directory
+from flask import Flask, request, render_template, redirect, url_for, session, send_from_directory, jsonify
 from products_data import products, activities
 from datetime import datetime
 import os
