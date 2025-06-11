@@ -94,20 +94,36 @@
     function submitOrder(e) {
       e.preventDefault();
       
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const storeType = document.getElementById("store-type").value;
+      const storeName = document.getElementById("store-name").value.trim();
+      const pickupTime = document.getElementById("pickup-time").value;
+      
+      // ✅ 基本前端驗證（不寫 email 沒關係）
+      if (!phone || !storeType || !storeName || !pickupTime) {
+        alert("請填寫所有必填欄位！");
+        return;
+      }
+      
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      if (cart.length === 0) {
+        alert("購物車是空的，請先選購商品！");
+        return;
+      }
+
       const orderData = {
-        email: document.getElementById("email").value || "無",
-        phone: document.getElementById("phone").value,
-        storeType: document.getElementById("store-type").value,
-        storeName: document.getElementById("store-name").value,
-        pickupTime: document.getElementById("pickup-time").value,
-        cart: JSON.parse(localStorage.getItem('cart') || '[]')
+        email: email || "無",
+        phone,
+        storeType,
+        storeName,
+        pickupTime,
+        cart
       };
       
       fetch("/submit_order", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderData)
       }).then(res => {
         if (res.ok) {
@@ -115,7 +131,7 @@
           localStorage.removeItem("cart");
           window.location.href = "/";
         } else {
-          alert("發生錯誤，請稍後再試");
+          alert("送出失敗，請稍後再試。");
         }
       });
     }
