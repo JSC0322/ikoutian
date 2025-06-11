@@ -67,17 +67,16 @@ def verify_password():
 
 @app.route("/api/orders")
 def get_orders():
+    if not os.path.exists(ORDERS_PATH):
+        return jsonify([])
     try:
         import importlib.util
         import sys
-
         if "orders" in sys.modules:
             del sys.modules["orders"]
-
-        spec = importlib.util.spec_from_file_location("orders", "./orders.py")
+        spec = importlib.util.spec_from_file_location("orders", ORDERS_PATH)
         orders_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(orders_module)
-
         return jsonify(orders_module.orders)
     except Exception as e:
         print("讀取 orders.py 錯誤：", e)
