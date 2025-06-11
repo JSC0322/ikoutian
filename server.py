@@ -79,6 +79,10 @@ def thanks():
 def about():
     return render_template('about.html')
 
+@app.route("/order.html")
+def order():
+    return render_template("order.html")
+
 @app.route('/wp-includes/<path:path>')
 @app.route('/media/<path:path>')
 def block_scan(path):
