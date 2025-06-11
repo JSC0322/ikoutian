@@ -43,6 +43,10 @@ def product_detail(id):
     else:
         return "找不到商品", 404
 
+@app.route("/api/products")
+def all_products():
+    return jsonify(products)
+
 @app.route('/activity')
 def activity_page():
     return render_template('activity.html', activities=activities)
