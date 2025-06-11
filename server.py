@@ -43,6 +43,10 @@ def product_detail(id):
     else:
         return "找不到商品", 404
 
+@app.route("/cart")
+def cart():
+    return render_template("cart.html")
+
 @app.route("/api/products")
 def all_products():
     return jsonify(products)
