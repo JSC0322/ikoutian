@@ -72,8 +72,9 @@
   <div class="form-group">
     <label for="size">尺寸：</label>
     <select id="size">
-      <option value="6">6 吋（NT$980）</option>
-      <option value="8">8 吋（NT$1480）</option>
+      {% for size, price in product.sizes.items() %}
+        <option value="{{ size }}"> {{ size }} 吋（NT${{ price }}）</option>
+      {% endfor %}
     </select>
   </div>
 
