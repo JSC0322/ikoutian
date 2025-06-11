@@ -1,19 +1,12 @@
 from flask import Flask, request, render_template, redirect, url_for, session, send_from_directory
-from flask_dance.contrib.google import make_google_blueprint, google
 from products_data import products, activities
 from datetime import datetime
-import csv
 import os
 import json
-import smtplib
-import gspread
-from oauth2client.service_account import ServiceAccountCredentials
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from oauthlib.oauth2 import TokenExpiredError
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
+ADMIN_PASSWORD = "password"
 
 @app.route('/')
 def home():
@@ -62,6 +55,30 @@ def submit_order():
         json.dump(orders, f, ensure_ascii=False, indent=2)
 
     return jsonify({"status": "success"})
+
+@app.route("/admin")
+def admin_page():
+    return render_template("admin.html")
+
+@app.route("/api/verify", methods=["POST"])
+def verify_password():
+    data = request.get_json()
+    if data.get("password") == ADMIN_PASSWORD:
+        return jsonify({"ok": True})
+    return jsonify({"ok": False}), 403
+
+@app.route("/api/orders")
+def get_orders():
+    if not os.path.exists("orders.py"):
+        return jsonify([])
+    try:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("orders", "./orders.py")
+        orders_module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(orders_module)
+        return jsonify(orders_module.orders)
+    except Exception as e:
+        return jsonify([])  # 若讀取失敗仍返回空列表
 
 @app.route("/cart")
 def cart():
