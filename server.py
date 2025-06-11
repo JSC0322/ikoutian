@@ -56,10 +56,6 @@ def submit_order():
 
     return jsonify({"status": "success"})
 
-@app.route("/admin")
-def admin_page():
-    return render_template("admin.html")
-
 @app.route("/api/verify", methods=["POST"])
 def verify_password():
     data = request.get_json()
@@ -69,16 +65,25 @@ def verify_password():
 
 @app.route("/api/orders")
 def get_orders():
-    if not os.path.exists("orders.py"):
-        return jsonify([])
     try:
         import importlib.util
+        import sys
+
+        if "orders" in sys.modules:
+            del sys.modules["orders"]
+
         spec = importlib.util.spec_from_file_location("orders", "./orders.py")
         orders_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(orders_module)
+
         return jsonify(orders_module.orders)
     except Exception as e:
-        return jsonify([])  # 若讀取失敗仍返回空列表
+        print("讀取 orders.py 錯誤：", e)
+        return jsonify([])
+
+@app.route("/admin")
+def admin_page():
+    return render_template("admin.html")
 
 @app.route("/cart")
 def cart():
