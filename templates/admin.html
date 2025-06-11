@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>管理後台 - 一口甜</title>
+  <style>
+    body { font-family: sans-serif; padding: 30px; max-width: 900px; margin: auto; background-color: #fdfdfd; }
+    .hidden { display: none; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background-color: #eee; }
+    .login-form { margin-bottom: 30px; }
+    .login-form input { padding: 8px; }
+  </style>
+</head>
+<body>
+  <h1>管理後台</h1>
+  <div class="login-form" id="login-form">
+    <form onsubmit="submitPassword(event)">
+      <label>請輸入管理密碼：</label>
+      <input type="password" id="admin-password" required>
+      <button type="submit">登入</button>
+    </form>
+  </div>
+
+  <div id="orders-section" class="hidden">
+    <h2>訂單列表</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>電話</th>
+          <th>便利商店</th>
+          <th>店名</th>
+          <th>內容</th>
+        </tr>
+      </thead>
+      <tbody id="orders-body"></tbody>
+    </table>
+  </div>
+
+  <script>
+    function submitPassword(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('admin-password').value;
+      fetch('/api/verify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: pwd })
+      }).then(res => {
+        if (!res.ok) throw new Error("驗證失敗");
+        return res.json();
+      }).then(data => {
+        if (data.ok) {
+          document.getElementById('login-form').classList.add('hidden');
+          document.getElementById('orders-section').classList.remove('hidden');
+          loadOrders();
+        } else {
+          alert("密碼錯誤！");
+        }
+      }).catch(err => alert("登入失敗！"));
+    }
+
+    function loadOrders() {
+      fetch('/api/orders').then(res => res.json()).then(data => {
+        const tbody = document.getElementById('orders-body');
+        data.forEach(order => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${order.phone}</td>
+            <td>${order.storeType}</td>
+            <td>${order.storeName}</td>
+            <td>
+              <ul>
+                ${order.cart.map(item => `<li>${item.name} (${item.size}) x ${item.quantity}</li>`).join('')}
+              </ul>
+            </td>
+          `;
+          tbody.appendChild(tr);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
