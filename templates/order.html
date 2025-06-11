@@ -60,6 +60,7 @@
       </div>
       <div class="form-group" id="store-name-group" style="display:none">
         <label>門市店名 *</label>
+        <small style="color: gray;">請填寫 7-11 或全家門市的名稱，例如：「北港順風門市」</small>
         <input type="text" id="store-name" required>
       </div>
       <button class="submit-btn" type="submit">送出訂單</button>
@@ -88,9 +89,30 @@
 
     function submitOrder(e) {
       e.preventDefault();
-      alert("訂單已送出，感謝您的訂購！");
-      localStorage.removeItem('cart');
-      window.location.href = '/';
+      
+      const orderData = {
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        storeType: document.getElementById("store-type").value,
+        storeName: document.getElementById("store-name").value,
+        cart: JSON.parse(localStorage.getItem('cart') || '[]')
+      };
+      
+      fetch("/submit_order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(orderData)
+      }).then(res => {
+        if (res.ok) {
+          alert("訂單已送出，感謝您的訂購！");
+          localStorage.removeItem("cart");
+          window.location.href = "/";
+        } else {
+          alert("發生錯誤，請稍後再試");
+        }
+      });
     }
   </script>
 </body>
