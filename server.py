@@ -43,6 +43,26 @@ def product_detail(id):
     else:
         return "找不到商品", 404
 
+@app.route("/submit_order", methods=["POST"])
+def submit_order():
+    data = request.get_json()
+
+    # 嘗試讀取現有訂單
+    if os.path.exists("orders.py"):
+        from orders import orders
+    else:
+        orders = []
+
+    # 加入新訂單
+    orders.append(data)
+
+    # 將整個訂單寫回 .py 檔
+    with open("orders.py", "w", encoding="utf-8") as f:
+        f.write("orders = ")
+        json.dump(orders, f, ensure_ascii=False, indent=2)
+
+    return jsonify({"status": "success"})
+
 @app.route("/cart")
 def cart():
     return render_template("cart.html")
