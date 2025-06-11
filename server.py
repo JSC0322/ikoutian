@@ -79,7 +79,7 @@ def thanks():
 def about():
     return render_template('about.html')
 
-@app.route("/order.html")
+@app.route("/order")
 def order():
     return render_template("order.html")
 
