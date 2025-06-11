@@ -6,7 +6,7 @@ import json
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
-ADMIN_PASSWORD = "password"
+ADMIN_PASSWORD = "1234"
 
 @app.route('/')
 def home():
