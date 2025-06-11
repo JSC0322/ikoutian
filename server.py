@@ -7,6 +7,7 @@ import json
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
 ADMIN_PASSWORD = "1234"
+ORDERS_PATH = "/data/orders.py"
 
 @app.route('/')
 def home():
@@ -21,7 +22,6 @@ def home():
 @app.route('/products')
 def products_page():
     selected_category = request.args.get('category', 'ice_cream_cake')
-    
     if selected_category == 'all':
         filtered = products
     else:
@@ -39,21 +39,23 @@ def product_detail(id):
 @app.route("/submit_order", methods=["POST"])
 def submit_order():
     data = request.get_json()
-
-    # 嘗試讀取現有訂單
-    if os.path.exists("orders.py"):
-        from orders import orders
-    else:
-        orders = []
-
-    # 加入新訂單
+    orders = []
+    if os.path.exists(ORDERS_PATH):
+        try:
+            import importlib.util
+            import sys
+            if "orders" in sys.modules:
+                del sys.modules["orders"]
+            spec = importlib.util.spec_from_file_location("orders", ORDERS_PATH)
+            orders_module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(orders_module)
+            orders = orders_module.orders
+        except:
+            pass
     orders.append(data)
-
-    # 將整個訂單寫回 .py 檔
-    with open("orders.py", "w", encoding="utf-8") as f:
+    with open(ORDERS_PATH, "w", encoding="utf-8") as f:
         f.write("orders = ")
         json.dump(orders, f, ensure_ascii=False, indent=2)
-
     return jsonify({"status": "success"})
 
 @app.route("/api/verify", methods=["POST"])
