@@ -113,6 +113,8 @@ def send_email(receiver_email, subject, body):
 
 # 客人信件
 def send_email_to_customer(customer_email, name, cart, total_price, pickup_date, store_type, store_name):
+    if not customer_email or '@' not in customer_email:
+        return
     subject = "您的訂單已收到 - 一口甜冰淇淋店"
     body = f"""
 親愛的 {name} 先生/小姐，您好：
