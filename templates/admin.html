@@ -45,6 +45,8 @@
   </div>
 
   <script>
+    let allOrders = []
+
     function submitPassword(e) {
       e.preventDefault();
       const pwd = document.getElementById('admin-password').value;
@@ -68,9 +70,12 @@
 
     function loadOrders() {
       fetch('/api/orders').then(res => res.json()).then(data => {
+        allOrders = data;
         const tbody = document.getElementById('orders-body');
         tbody.innerHTML = '';
         data.forEach((order, index) => {
+          const doneChecked = order.done ? 'checked' : '';
+          const shippedChecked = order.shipped ? 'checked' : '';
           const tr = document.createElement('tr');
           tr.innerHTML = `
             <td>${order.name || "無"}</td>
@@ -84,8 +89,8 @@
                 ${(order.cart || []).map(item => `<li>${item.name} (${item.size}) x ${item.quantity}</li>`).join('')}
               </ul>
             </td>
-            <td class="checkbox-col"><input type="checkbox" onchange="markStatus(${index}, 'done', this.checked)"></td>
-            <td class="checkbox-col"><input type="checkbox" onchange="markStatus(${index}, 'shipped', this.checked)"></td>
+            <td class="checkbox-col"><input type="checkbox" ${doneChecked} onchange="markStatus(${index}, 'done', this.checked)"></td>
+            <td class="checkbox-col"><input type="checkbox" ${shippedChecked} onchange="markStatus(${index}, 'shipped', this.checked)"></td>
           `;
           tbody.appendChild(tr);
         });
@@ -93,8 +98,12 @@
     }
 
     function markStatus(index, field, value) {
-      const key = `order_${index}_${field}`;
-      localStorage.setItem(key, value);
+      allOrders[index][field] = value;
+      fetch('/api/update_order_status', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ index, field, value })
+      });
     }
   </script>
 </body>
