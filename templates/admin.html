@@ -11,6 +11,7 @@
     th { background-color: #eee; }
     .login-form { margin-bottom: 30px; }
     .login-form input { padding: 8px; }
+    .checkbox-col { text-align: center; }
   </style>
 </head>
 <body>
@@ -28,12 +29,15 @@
     <table>
       <thead>
         <tr>
-          <th>Email</th>
+          <th>姓名</th>
           <th>電話</th>
           <th>便利商店</th>
           <th>店名</th>
-          <th>取貨時間</th>
+          <th>取貨日期</th>
+          <th>Email</th>
           <th>內容</th>
+          <th>已完成</th>
+          <th>已出貨</th>
         </tr>
       </thead>
       <tbody id="orders-body"></tbody>
@@ -65,23 +69,32 @@
     function loadOrders() {
       fetch('/api/orders').then(res => res.json()).then(data => {
         const tbody = document.getElementById('orders-body');
-        data.forEach(order => {
+        tbody.innerHTML = '';
+        data.forEach((order, index) => {
           const tr = document.createElement('tr');
           tr.innerHTML = `
+            <td>${order.name || "無"}</td>
+            <td>${order.phone || "無"}</td>
+            <td>${order.storeType || "無"}</td>
+            <td>${order.storeName || "無"}</td>
+            <td>${order.pickupTime || "無"}</td>
             <td>${order.email || "無"}</td>
-            <td>${order.phone}</td>
-            <td>${order.storeType}</td>
-            <td>${order.storeName}</td>
-            <td>${order.pickupTime}</td>
             <td>
               <ul>
-                ${order.cart.map(item => `<li>${item.name} (${item.size}) x ${item.quantity}</li>`).join('')}
+                ${(order.cart || []).map(item => `<li>${item.name} (${item.size}) x ${item.quantity}</li>`).join('')}
               </ul>
             </td>
+            <td class="checkbox-col"><input type="checkbox" onchange="markStatus(${index}, 'done', this.checked)"></td>
+            <td class="checkbox-col"><input type="checkbox" onchange="markStatus(${index}, 'shipped', this.checked)"></td>
           `;
           tbody.appendChild(tr);
         });
       });
+    }
+
+    function markStatus(index, field, value) {
+      const key = `order_${index}_${field}`;
+      localStorage.setItem(key, value);
     }
   </script>
 </body>
