@@ -109,7 +109,7 @@ def send_email(receiver_email, subject, body):
     with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
         server.starttls()
         server.login(SENDER_EMAIL, SENDER_PASSWORD)
-        server.send_message(message)
+        server.sendmail(SENDER_EMAIL, receiver_email, message.as_string())
 
 # 客人信件
 def send_email_to_customer(customer_email, name, cart, total_price, pickup_date, store_type, store_name):
