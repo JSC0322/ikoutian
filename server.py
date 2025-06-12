@@ -1,8 +1,14 @@
 from flask import Flask, request, render_template, redirect, url_for, session, send_from_directory, jsonify
 from products_data import products, activities
 from datetime import datetime
-import os
-import json
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import os, json, smtplib
+
+SMTP_SERVER = 'smtp.mail.me.com'
+SMTP_PORT = 587
+SENDER_EMAIL = 'piggy109023@icloud.com'
+SENDER_PASSWORD = 'ceop-rxfr-awlo-avno'
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
@@ -36,51 +42,12 @@ def product_detail(id):
     else:
         return "找不到商品", 404
 
-@app.route("/submit_order", methods=["POST"])
-def submit_order():
-    data = request.get_json()
-    orders = []
-    if os.path.exists(ORDERS_PATH):
-        try:
-            import importlib.util
-            import sys
-            if "orders" in sys.modules:
-                del sys.modules["orders"]
-            spec = importlib.util.spec_from_file_location("orders", ORDERS_PATH)
-            orders_module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(orders_module)
-            orders = orders_module.orders
-        except:
-            pass
-    orders.append(data)
-    with open(ORDERS_PATH, "w", encoding="utf-8") as f:
-        f.write("orders = ")
-        json.dump(orders, f, ensure_ascii=False, indent=2)
-    return jsonify({"status": "success"})
-
 @app.route("/api/verify", methods=["POST"])
 def verify_password():
     data = request.get_json()
     if data.get("password") == ADMIN_PASSWORD:
         return jsonify({"ok": True})
     return jsonify({"ok": False}), 403
-
-@app.route("/api/orders")
-def get_orders():
-    if not os.path.exists(ORDERS_PATH):
-        return jsonify([])
-    try:
-        import importlib.util
-        import sys
-        if "orders" in sys.modules:
-            del sys.modules["orders"]
-        spec = importlib.util.spec_from_file_location("orders", ORDERS_PATH)
-        orders_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(orders_module)
-        return jsonify(orders_module.orders)
-    except Exception as e:
-        print("讀取 orders.py 錯誤：", e)
-        return jsonify([])
 
 @app.route("/admin")
 def admin_page():
@@ -130,6 +97,128 @@ def order():
 @app.route('/media/<path:path>')
 def block_scan(path):
     return 'Not Found', 404
+
+# 通用寄信函數
+def send_email(receiver_email, subject, body):
+    message = MIMEMultipart()
+    message['From'] = 'clerk@asweet.com.tw'
+    message['To'] = receiver_email
+    message['Subject'] = subject
+    message.attach(MIMEText(body, 'plain', 'utf-8'))
+
+    with smtplib.SMTP(SMTP_SERVER, SMTP_PORT) as server:
+        server.starttls()
+        server.login(SENDER_EMAIL, SENDER_PASSWORD)
+        server.send_message(message)
+
+# 客人信件
+def send_email_to_customer(customer_email, name, cart, total_price, pickup_date, store_type, store_name):
+    subject = "您的訂單已收到 - 一口甜冰淇淋店"
+    body = f"""
+親愛的 {name} 先生/小姐，您好：
+
+感謝您訂購我們的冰淇淋蛋糕！
+以下是您的訂單資訊：
+
+購物清單：{cart}
+總金額：{total_price} 元
+取貨日期：{pickup_date}
+取貨便利商店：{store_type} - {store_name} 門市
+
+如有任何問題，請聯絡我們。
+祝您有個美好的一天！
+
+一口甜冰淇淋店
+"""
+    if customer_email:
+        send_email(customer_email, subject, body)
+
+# 店員信件
+
+def send_email_to_staff(cart, total_price, name, phone, email, pickup_date, store_type, store_name):
+    subject = "新訂單通知 - 一口甜冰淇淋店"
+    body = f"""
+有新訂單了！
+
+購物清單：{cart}
+總金額：{total_price} 元
+姓名：{name}
+聯絡電話：{phone}
+電子郵件：{email}
+取貨日期：{pickup_date}
+取貨便利商店：{store_type}  {store_name} 門市
+"""
+    for ssent in ["aching0301@gmail.com", "piggy109023@gmail.com", "clerk@asweet.com.tw"]:
+        send_email(ssent, subject, body)
+
+@app.route("/submit_order", methods=["POST"])
+def submit_order():
+    data = request.get_json()
+
+    orders = []
+    if os.path.exists(ORDERS_PATH):
+        try:
+            import importlib.util
+            import sys
+            if "orders" in sys.modules:
+                del sys.modules["orders"]
+            spec = importlib.util.spec_from_file_location("orders", ORDERS_PATH)
+            orders_module = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(orders_module)
+            orders = orders_module.orders
+        except:
+            pass
+
+    orders.append(data)
+
+    # 寄信處理
+    cart = data.get("cart", [])
+    summary = ', '.join([f"{item['name']}({item['size']})x{item['quantity']}" for item in cart])
+    total_price = sum(item["price"] * item["quantity"] for item in cart)
+
+    send_email_to_customer(
+        customer_email=data.get("email", ""),
+        name=data.get("name", "顧客"),
+        cart=summary,
+        total_price=total_price,
+        pickup_date=data.get("pickupTime", ""),
+        store_type=data.get("storeType", ""),
+        store_name=data.get("storeName", "")
+    )
+
+    send_email_to_staff(
+        cart=summary,
+        total_price=total_price,
+        name=data.get("name", "顧客"),
+        phone=data.get("phone", ""),
+        email=data.get("email", ""),
+        pickup_date=data.get("pickupTime", ""),
+        store_type=data.get("storeType", ""),
+        store_name=data.get("storeName", "")
+    )
+
+    with open(ORDERS_PATH, "w", encoding="utf-8") as f:
+        f.write("orders = ")
+        json.dump(orders, f, ensure_ascii=False, indent=2)
+
+    return jsonify({"status": "success"})
+
+@app.route("/api/orders")
+def get_orders():
+    if not os.path.exists(ORDERS_PATH):
+        return jsonify([])
+    try:
+        import importlib.util
+        import sys
+        if "orders" in sys.modules:
+            del sys.modules["orders"]
+        spec = importlib.util.spec_from_file_location("orders", ORDERS_PATH)
+        orders_module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(orders_module)
+        return jsonify(orders_module.orders)
+    except Exception as e:
+        print("讀取 orders.py 錯誤：", e)
+        return jsonify([])
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))
