@@ -98,37 +98,6 @@ def order():
 def block_scan(path):
     return 'Not Found', 404
 
-@app.route("/api/update_order_status", methods=["POST"])
-def update_order_status():
-    data = request.get_json()
-    index = data.get("index")
-    field = data.get("field")
-    value = data.get("value")
-
-    if not os.path.exists(ORDERS_PATH):
-        return jsonify({"error": "訂單不存在"}), 404
-
-    try:
-        import importlib.util
-        import sys
-        if "orders" in sys.modules:
-            del sys.modules["orders"]
-        spec = importlib.util.spec_from_file_location("orders", ORDERS_PATH)
-        orders_module = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(orders_module)
-        orders = orders_module.orders
-
-        if 0 <= index < len(orders):
-            orders[index][field] = value
-            with open(ORDERS_PATH, "w", encoding="utf-8") as f:
-                f.write("orders = ")
-                json.dump(orders, f, ensure_ascii=False, indent=2)
-            return jsonify({"ok": True})
-        else:
-            return jsonify({"error": "無效的 index"}), 400
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
-
 # 通用寄信函數
 def send_email(receiver_email, subject, body):
     message = MIMEMultipart()
