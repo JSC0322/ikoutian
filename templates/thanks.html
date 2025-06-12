@@ -1,93 +1,110 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <title>感謝您的訂購 - 一口甜冰淇淋店</title>
-    <link rel="icon" href="/static/favicon.jpg" type="image/jpeg">
-    <link rel="stylesheet" href="/static/style.css">
-    <style>
-        .thanks-container {
-            max-width: 600px;
-            margin: 50px auto;
-            padding: 30px;
-            background-color: rgba(255, 255, 255, 0.85);
-            border-radius: 15px;
-            text-align: center;
-        }
-        .thanks-title {
-            font-size: 2em;
-            color: #ff7043;
-            margin-bottom: 20px;
-        }
-        .cart-summary {
-            text-align: left;
-            font-size: 1.1em;
-            margin: 20px 0;
-            color: #444;
-        }
-        .support-info {
-            margin-top: 30px;
-            font-size: 0.95em;
-            color: #555;
-        }
-        .cart-btn {
-            background-color: #ff6f61;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            font-size: 1em;
-            border-radius: 30px;
-            cursor: pointer;
-            text-decoration: none;
-            margin-top: 20px;
-            display: inline-block;
-        }
-        .cart-btn:hover {
-            background-color: #ff3b2e;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>感謝您的訂購 - 一口甜冰淇淋店</title>
+  <link rel="icon" href="/static/favicon.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    body {
+      background-color: #fff8f6;
+      font-family: sans-serif;
+    }
+    .thanks-container {
+      max-width: 700px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .thanks-title {
+      font-size: 2em;
+      color: #ff7043;
+      margin-bottom: 20px;
+    }
+    .summary-block {
+      text-align: left;
+      margin: 20px 0;
+      color: #333;
+    }
+    .summary-block ul {
+      list-style: disc;
+      padding-left: 20px;
+    }
+    .cart-btn {
+      background-color: #ff6f61;
+      color: white;
+      padding: 12px 24px;
+      font-size: 1em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    .cart-btn:hover {
+      background-color: #ff3b2e;
+    }
+    .support-info {
+      margin-top: 30px;
+      font-size: 0.95em;
+      color: #666;
+    }
+  </style>
 </head>
 <body>
 
 <header>
-    <h1>一口甜冰淇淋店</h1>
+  <h1>一口甜冰淇淋店</h1>
 </header>
 
 <main class="thanks-container">
-    <div class="thanks-title">感謝您的訂購！</div>
+  <div class="thanks-title">感謝您的訂購！</div>
 
-    <div class="cart-summary">
-        <strong>您剛剛購買的商品：</strong>
-        <ul id="cart-items"></ul>
-        <p><strong>總金額：</strong><span id="total-price"></span> 元</p>
-    </div>
+  <div class="summary-block" id="order-summary">
+    <!-- 訂單資料會由 JS 動態插入 -->
+  </div>
 
-    <div class="support-info">
-        若有疑問請來信 <strong>sweet@asweet.com.tw</strong><br>
-        或致電 <strong>0970-575-765</strong>
-    </div>
+  <div class="support-info">
+    若有疑問請來信 <strong>sweet@asweet.com.tw</strong><br>
+    或致電 <strong>0970-575-765</strong>
+  </div>
 
-    <a href="/" class="cart-btn">返回首頁</a>
+  <a href="/" class="cart-btn">返回首頁</a>
 </main>
 
 <footer>
-    <p>&copy; 2025 一口甜冰淇淋店 All Rights Reserved.</p>
+  <p>&copy; 2025 一口甜冰淇淋店 All Rights Reserved.</p>
 </footer>
 
 <script>
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let cartList = document.getElementById('cart-items');
-    let totalPrice = 0;
+  const order = JSON.parse(localStorage.getItem("latest_order")) || {};
+  const container = document.getElementById("order-summary");
+  let html = "";
 
-    cart.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = `${item.name}（${item.size}）x${item.quantity} - $${item.price * item.quantity}`;
-        cartList.appendChild(li);
-        totalPrice += item.price * item.quantity;
+  if (order.cart && order.cart.length > 0) {
+    let total = 0;
+    html += `<p><strong>取貨日期：</strong>${order.pickupTime || "未填寫"}</p>`;
+    html += `<p><strong>電話：</strong>${order.phone || "未填寫"}</p>`;
+    html += `<p><strong>便利商店：</strong>${order.storeType || "未填寫"}</p>`;
+    html += `<p><strong>門市店名：</strong>${order.storeName || "未填寫"}</p>`;
+    html += `<p><strong>Email：</strong>${order.email || "無"}</p>`;
+    html += `<p><strong>購買商品：</strong></p><ul>`;
+    order.cart.forEach(item => {
+      html += `<li>${item.name}（${item.size}）x${item.quantity} - $${item.price * item.quantity}</li>`;
+      total += item.price * item.quantity;
     });
+    html += `</ul>`;
+    html += `<p><strong>總金額：</strong>${total} 元</p>`;
+  } else {
+    html += `<p>找不到訂單資訊。</p>`;
+  }
 
-    document.getElementById('total-price').innerText = totalPrice;
-    localStorage.removeItem('cart'); // 清空購物車
+  container.innerHTML = html;
+  localStorage.removeItem("latest_order");
 </script>
 
 </body>
