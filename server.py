@@ -177,21 +177,22 @@ def submit_order():
     cart = data.get("cart", [])
     summary = ', '.join([f"{item['name']}({item['size']})x{item['quantity']}" for item in cart])
     total_price = sum(item["price"] * item["quantity"] for item in cart)
-
+    name = data.get("name", "").strip() or "顧客"
+    
     send_email_to_customer(
         customer_email=data.get("email", ""),
-        name=data.get("name", "顧客"),
+        name=name,
         cart=summary,
         total_price=total_price,
         pickup_date=data.get("pickupTime", ""),
         store_type=data.get("storeType", ""),
         store_name=data.get("storeName", "")
     )
-
+    
     send_email_to_staff(
         cart=summary,
         total_price=total_price,
-        name=data.get("name", "顧客"),
+        name=name,
         phone=data.get("phone", ""),
         email=data.get("email", ""),
         pickup_date=data.get("pickupTime", ""),
