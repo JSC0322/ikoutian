@@ -11,7 +11,8 @@
     th { background-color: #eee; }
     .login-form { margin-bottom: 30px; }
     .login-form input { padding: 8px; }
-    .checkbox-col { text-align: center; }
+    .checkbox-col, .delete-col { text-align: center; }
+    .delete-btn { padding: 5px 10px; background-color: #d9534f; color: white; border: none; border-radius: 5px; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -38,6 +39,7 @@
           <th>內容</th>
           <th>已完成</th>
           <th>已出貨</th>
+          <th>刪除</th>
         </tr>
       </thead>
       <tbody id="orders-body"></tbody>
@@ -91,6 +93,7 @@
             </td>
             <td class="checkbox-col"><input type="checkbox" ${doneChecked} onchange="markStatus(${index}, 'done', this.checked)"></td>
             <td class="checkbox-col"><input type="checkbox" ${shippedChecked} onchange="markStatus(${index}, 'shipped', this.checked)"></td>
+            <td class="delete-col"><button class="delete-btn" onclick="deleteOrder(${index})">刪除</button></td>
           `;
           tbody.appendChild(tr);
         });
@@ -104,6 +107,15 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ index, field, value })
       });
+    }
+
+    function deleteOrder(index) {
+      if (!confirm("確定要刪除此訂單嗎？")) return;
+      fetch('/api/delete_order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ index })
+      }).then(() => loadOrders());
     }
   </script>
 </body>
