@@ -115,7 +115,7 @@ def send_email(receiver_email, subject, body):
 def send_email_to_customer(customer_email, name, cart, total_price, pickup_date, store_type, store_name):
     if not customer_email or '@' not in customer_email:
         return
-    subject = "您的訂單已收到 - 一口甜冰淇淋店"
+    subject = "您的訂單已收到 - 一口甜冰淇淋"
     body = f"""
 親愛的 {name} 先生/小姐，您好：
 
@@ -130,7 +130,7 @@ def send_email_to_customer(customer_email, name, cart, total_price, pickup_date,
 如有任何問題，請聯絡我們。
 祝您有個美好的一天！
 
-一口甜冰淇淋店
+一口甜冰淇淋
 """
     if customer_email:
         send_email(customer_email, subject, body)
@@ -138,7 +138,7 @@ def send_email_to_customer(customer_email, name, cart, total_price, pickup_date,
 # 店員信件
 
 def send_email_to_staff(cart, total_price, name, phone, email, pickup_date, store_type, store_name):
-    subject = "新訂單通知 - 一口甜冰淇淋店"
+    subject = "新訂單通知 - 一口甜冰淇淋"
     body = f"""
 有新訂單了！
 
