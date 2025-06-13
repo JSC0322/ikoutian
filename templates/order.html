@@ -95,7 +95,8 @@
 
     function submitOrder(e) {
       e.preventDefault();
-      
+
+      const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const phone = document.getElementById("phone").value.trim();
       const storeType = document.getElementById("store-type").value;
@@ -115,6 +116,7 @@
       }
 
       const orderData = {
+        name,
         email: email || "無",
         phone,
         storeType,
