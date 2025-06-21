@@ -87,10 +87,10 @@
 
   if (order.cart && order.cart.length > 0) {
     let total = 0;
-    html += `<p><strong>取貨日期：</strong>${order.pickupTime || "未填寫"}</p>`;
-    html += `<p><strong>電話：</strong>${order.phone || "未填寫"}</p>`;
-    html += `<p><strong>便利商店：</strong>${order.storeType || "未填寫"}</p>`;
-    html += `<p><strong>門市店名：</strong>${order.storeName || "未填寫"}</p>`;
+    html += `<p><strong>取貨日期：</strong>${order.pickupTime}</p>`;
+    html += `<p><strong>電話：</strong>${order.phone}</p>`;
+    html += `<p><strong>便利商店：</strong>${order.storeType}</p>`;
+    html += `<p><strong>門市店名：</strong>${order.storeName}</p>`;
     html += `<p><strong>Email：</strong>${order.email || "無"}</p>`;
     html += `<p><strong>購買商品：</strong></p><ul>`;
     order.cart.forEach(item => {
@@ -98,7 +98,13 @@
       total += item.price * item.quantity;
     });
     html += `</ul>`;
-    html += `<p><strong>總金額：</strong>${total} 元</p>`;
+
+    const shipping = total >= 980 ? 0 : 150;
+    const grandTotal = total + shipping;
+
+    html += `<p><strong>商品總金額：</strong>${total} 元</p>`;
+    html += `<p><strong>運費：</strong>${shipping} 元</p>`;
+    html += `<p><strong>總計金額：</strong>${grandTotal} 元</p>`;
   } else {
     html += `<p>找不到訂單資訊。</p>`;
   }
