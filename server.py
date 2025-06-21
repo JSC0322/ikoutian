@@ -35,12 +35,20 @@ def products_page():
     
     return render_template('products.html', products=filtered, selected=selected_category)
 
+@app.route('/activity')
+def activity_page():
+    return render_template('activity.html', activities=activities)
+
 @app.route('/shop/<id>')
 def product_detail(id):
     if id in products:
         return render_template('shop.html', product=products[id])
     else:
         return "找不到商品", 404
+
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('static', 'sitemap.xml', mimetype='application/xml')
 
 @app.route("/api/verify", methods=["POST"])
 def verify_password():
@@ -56,14 +64,6 @@ def admin_page():
 @app.route("/cart")
 def cart():
     return render_template("cart.html")
-
-@app.route("/api/products")
-def all_products():
-    return jsonify(products)
-
-@app.route('/activity')
-def activity_page():
-    return render_template('activity.html', activities=activities)
 
 @app.route("/sitemap.xml")
 def sitemap():
@@ -93,6 +93,10 @@ def about():
 def order():
     return render_template("order.html")
 
+@app.route("/api/products")
+def all_products():
+    return jsonify(products)
+    
 @app.route('/wp-includes/<path:path>')
 @app.route('/media/<path:path>')
 def block_scan(path):
