@@ -46,10 +46,6 @@ def product_detail(id):
     else:
         return "找不到商品", 404
 
-@app.route('/sitemap.xml')
-def sitemap():
-    return send_from_directory('static', 'sitemap.xml', mimetype='application/xml')
-
 @app.route("/api/verify", methods=["POST"])
 def verify_password():
     data = request.get_json()
