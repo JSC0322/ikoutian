@@ -53,7 +53,7 @@ products = {
         "id": "pearl-milk-tea-cake",
         "name": "珍珠奶茶冰淇淋蛋糕",
         "image": "https://hackmd.io/_uploads/rylaxj1egg.jpg",
-        "short": "Q彈珍珠＋香濃奶茶，冰火交融的口感！",
+        "short": "經典珍珠奶茶變身冰淇淋蛋糕，Q彈珍珠搭配濃郁奶茶，冰涼又療癒！",
         "detail": "現熬茶香融合奶香滑順，搭配Q彈珍珠，還原最熟悉的珍珠奶茶冰淇淋蛋糕。",
         "category": "ice_cream_cake",
         "unit": "吋",
@@ -286,12 +286,12 @@ products = {
 
 ####################################################################################
 """
-    "matcha-long": {
-        "id": "matcha-long",
-        "name": "抹茶長條蛋糕",
+    "pearl-milk-tea-long": {
+        "id": "pearl-milk-tea-long",
+        "name": "珍珠奶茶長條蛋糕",
         "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVA79CVL1JRWoineC3dof2t4s1C23srcj98SiehTRrzrnSW3Hp6dQLItCv59ZgcVpPt_54FpweqauKmujfUuFi5Y5a9-d5Qvm9AAcUmLwb2-EiO3d6VYQ9RFnvmv9RuJFa3789YwVPoASYklas7r2GU6XQ=w260?key=W1w9LWLVB2PoIVnkMhJERA",
-        "short": "使用日本小山園抹茶，茶香濃郁微苦，回甘清爽，是抹茶控必吃的冰棒。",
-        "detail": "嚴選日本小山園抹茶粉製作，不加香料與色素，保留抹茶原始的清香與微苦回甘。口感滑順不甜膩，尾韻淡雅，是大人味冰棒的代表，適合喜愛日式風味的你。",
+        "short": "經典珍珠奶茶變身冰淇淋蛋糕，Q彈珍珠搭配濃郁奶茶，冰涼又療癒！",
+        "detail": "現熬茶香融合奶香滑順，搭配Q彈珍珠，還原最熟悉的珍珠奶茶冰淇淋蛋糕。",
         "category": "long-cake",
         "unit": "支",
         "sizes": {
