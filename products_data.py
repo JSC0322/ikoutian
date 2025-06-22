@@ -1,7 +1,7 @@
 """目錄
 10---冰淇淋蛋糕
 140--冰棒
-275--長條
+290--長條
 0----0
 0----0
 0----0
@@ -139,7 +139,7 @@ products = {
     "vanilla-popsicle": {
         "id": "vanilla-popsicle",
         "name": "香草牛奶冰棒",
-        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYem4itKUW0Ixr042-VBjzFQv2Rf02hZqdg7ZdBmu-2n3RQL3FNDH7JOrNCXoDfvb5nWmvaYJqBj18d-RXdrRkinJxZNZBU5_c=s1600-rw-v1",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVBRWGNTvPaCujeg8iyW3zmBx4IdhRpKlSR-t-j5biM2e8pdTd4KeYhDS5spD6fLyuT_XO3q-aHdtSKmseGbz4Mcx3NAGQjfnYv3tEMos7kP9CQ3-IgP7EbDNJxXfzNnDk80RwPyfW0xlKugbEQeqBv8=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "使用真實香草精製作，奶香濃郁滑順，經典香草冰棒，簡單卻讓人回味無窮。",
         "detail": "嚴選香草莢萃取天然香草精，搭配濃醇鮮奶製作，無添加香料與色素。口感滑順、甜而不膩，是老少咸宜的經典口味，純粹自然，每一口都吃得安心又滿足。",
         "category": "popsicle",
@@ -151,7 +151,7 @@ products = {
     "peanut-popsicle": {
         "id": "peanut-popsicle",
         "name": "花生冰棒",
-        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihZk2sNGbt2pACInP9fsSWuI94zXeAVqQKzV0Duve1-WDOUvVPrzj63cMUPP6qKL3vhPjjLk4leSYxQ7UUFumU9TFOiuc8PgxrU=s1600-rw-v1",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVBEwsh6E59isASC-GTKI9ZuiG85OrPaTLkxlKKL_qZ-SzYk8V1OJfe-6OWMAA7oidY0o9ElZA2nWsw46PSmWVunBPmTYpjf297B8a9bnagAT3fMgTIqWbK9clOok61P-e-lrdgxGoFubUa_eqMePs7M=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "濃郁花生醬融合鮮奶製作，香氣十足，口感滑順，傳統又不失驚喜。",
         "detail": "選用香氣濃厚的花生醬，結合鮮奶調和出滑順質地。每一口都能品嚐到花生的真實風味，是懷舊系冰棒中的經典代表。",
         "category": "popsicle",
@@ -163,7 +163,7 @@ products = {
     "oreo-milk-popsicle": {
         "id": "oreo-milk-popsicle",
         "name": "OREO牛奶冰棒",
-        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYXTSuipvMmIAb3PZAvS4R6tLxalnfWL-gbglNnMl8wbleDIbvcuMaoslrkVgn8cHgJD__biDbuajZLQP-RCcjV1bEUA8A_LJw=s1600-rw-v1",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVDfuqmWrE_Oy2OAMwA5bnHd0m2N67yfAY_DJ9MRBYLUUmb3fClwo-GprOttDZJGApNyjXGa1hwfxPMytpflkbzKR6yHfFZ9VImcrkEsVhy0SeZmTy4zw9Jop830b9pieidMO1XD8JXoj1GUCIC23-VWAA=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "香濃鮮奶中加入OREO碎片，口感豐富酥脆，是大人小孩都愛的甜點系冰棒。",
         "detail": "以滑順牛奶冰淇淋為基底，拌入大量OREO餅乾碎片，甜中帶脆，每一口都像在吃餅乾＋冰淇淋，讓人愛不釋手。",
         "category": "popsicle",
@@ -214,7 +214,7 @@ products = {
     "strawberry-popsicle": {
         "id": "strawberry-popsicle",
         "name": "草莓冰棒",
-        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihb63Z2WXx5O8-YiVWjsAXQPALQsZL77tgQ9S3ie9MMVAPxUlHJH12CTDpjnukdVm1fKDf3_0UoKOGTq0cL6aVzsIoYkGefM600=s1600-rw-v1",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVDpmHVN9KulT4JsW8VS3MoGqhAqKWX09I2j0WcpgP-R1c7a_mz7tUdv7qSrIZwmLxVkHn3mvP_oZTCI0Df6cAiyOpeRhj1cSUnCFDHqWKeg0Kcyqa5F6DvRgUbSjj9emmBtUzbHFVP7nEIjeshocWME=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "嚴選新鮮草莓打製，果香濃郁，酸甜適中，彷彿戀愛的滋味。",
         "detail": "使用台灣草莓製成果泥，保留天然果香與微酸口感。冰體滑順、甜度適中，是炎炎夏日中最能喚醒味蕾的夢幻口味。",
         "category": "popsicle",
@@ -226,7 +226,7 @@ products = {
     "berries-popsicle": {
         "id": "berries-popsicle",
         "name": "綜合莓果冰棒",
-        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihaSpbHd2COeK1OcfBHG1SprVMkkUP3SULHpkS8tbIYTvzrLBY7jgnP-ORWyuPgyVf2XqPi1gsar64MrjnT769Oaf0EvCSI7b-Q=s1600-rw-v1",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVC4w2KzjHBoidwQUAijbSPELQjMjrDTDf5e8NggUSGbrw3fELtbwglsh6kLFlxp9n4jN6R77dZDjSQVOOTFSVYpMvJlFuqAb-M4EAvzLfVA8NP-E3-upZFsNtGNT__JRDJxi7bP59Xq85HI87WWXYxn=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "多種莓果混合製作，果香層次豐富，酸甜平衡，充滿夏日清爽感。",
         "detail": "融合藍莓、覆盆子、小紅莓等多種莓果，口感層層堆疊、果香十足。每一口都充滿果肉纖維與酸甜風味，是莓果控的最愛。",
         "category": "popsicle",
@@ -238,7 +238,7 @@ products = {
     "matcha-popsicle": {
         "id": "matcha-popsicle",
         "name": "抹茶冰棒",
-        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYtI4RifFNKSlPYw4RPb7k3ejbmJlHpdhPXkZ8CkLcc8g9zpZW_m-Bs8p5wTb_MNN9rduxZDD17y1a1UNC5ul1daGvdS4CQQs8=s1600-rw-v1",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVAM2v4BBEFr_w6fIbdcUEVHB0dwtknX8c_2oUr0FYTiNy5-s7C5qZav-_-N_G2MSAZ-I2X4t_qaagHkvgUy1TXpUsDNhtbHkv2tORZM3bBLrrVDklMTFiiWYjPhlggaI5-iJlAod_b8mKVR-5ow0l6x=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "使用日本小山園抹茶，茶香濃郁微苦，回甘清爽，是抹茶控必吃的冰棒。",
         "detail": "嚴選日本小山園抹茶粉製作，不加香料與色素，保留抹茶原始的清香與微苦回甘。口感滑順不甜膩，尾韻淡雅，是大人味冰棒的代表，適合喜愛日式風味的你。",
         "category": "popsicle",
@@ -250,7 +250,7 @@ products = {
     "red-beans-popsicle": {
         "id": "red-beans-popsicle",
         "name": "紅豆冰棒",
-        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYJtbP-3vyksVYKqRHzz7W6oFeQCefisgINU4j2fa0SsrSKWomVLQFi1ldp8iLAMfUubgnn8podRKN4UuM197l8onH94qIXmQ=s1600-rw-v1",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVBhURUDaHBk69exUYLpn_i9yi6dNM2Gli2DqsvDuE7QaE8RzpGvI-EN25Tn9s3Sh2vJHyxDQ-mpM5FWyDU4xglT4_PkHYK7qxxaskVK_PSDfg7OnLxIvx0Zf6AQNN-llfdO6zuLulW51DzLDv8RNt8ExQ=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "嚴選台灣紅豆熬煮，保留顆粒口感，甜而不膩，懷舊經典風味。",
         "detail": "使用台灣紅豆慢火熬煮，紅豆顆顆飽滿，保留天然香氣與口感。冰體綿密、紅豆香濃，是從小吃到大的懷舊冰棒，甜度剛好、吃得到家的味道。",
         "category": "popsicle",
@@ -262,7 +262,7 @@ products = {
     "blueberry-popsicle": {
         "id": "blueberry-popsicle",
         "name": "藍莓冰棒",
-        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihbrUXUGSfOHNRm5QWNcwcWO4Jh64wNkm1ul8pelpD0DDt3nfEJs3SGX8Qm9dWCk9Nw13qE4T16se51lvIjbT4caSBsYRDls8w=s1600-rw-v1",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVDuEZIPxdTj6De8K2M2Fuiz_9zwzeVQksd1ksX2HWjz2JtnFyq9-_ppe8n7N1AY54msKPISLlSzQ0YS36Fn6Ij_ziVXeyehWe771II9Uo8Ez2ztjmFvqUzK-XJRsmGjieh3__hz1ExE8256h1l_C1R4uw=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "使用藍莓果肉打製，果香濃郁微酸，顏色天然、清爽解膩。",
         "detail": "以新鮮藍莓製成果泥冰體，保留藍莓自然酸甜與深紫色澤，不添加色素香料。每一口都能感受到果粒香氣與微酸清爽，是喜歡果香系的冰友首選。",
         "category": "popsicle",
@@ -274,7 +274,7 @@ products = {
     "coffee-popsicle": {
         "id": "coffee-popsicle",
         "name": "咖啡冰棒",
-        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihaKKsfM9r0esCbT32EYbafXtLbYoTmam3Z8fCNe5a6KM-R8sONSMH0584PZTKs_9-nZZsTNvaGVLKUSBQqVGVUJ_26NLRBlNeQ=s1600-rw-v1",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVAaVwFyUpspAOV46XWhx29BKq3EGAhtuBk5IRorJ1NZuP0vA-sjg3b44SVkslSzVahnmcjLTDqZ0SuoRnsJK0YyOmaJo51vBkI9MAzPzlIHj2Z4k-oYimZx2ASdiLxfQh893UlT7rrPqP3ykWOiFluODA=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "使用藍莓果肉打製，果香濃郁微酸，顏色天然、清爽解膩。",
         "detail": "以新鮮藍莓製成果泥冰體，保留藍莓自然酸甜與深紫色澤，不添加色素香料。每一口都能感受到果粒香氣與微酸清爽，是喜歡果香系的冰友首選。",
         "category": "popsicle",
@@ -285,11 +285,11 @@ products = {
     },
 
 ####################################################################################
-
+"""
     "matcha-long": {
         "id": "matcha-long",
         "name": "抹茶長條蛋糕",
-        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVA79CVL1JRWoineC3dof2t4s1C23srcj98SiehTRrzrnSW3Hp6dQLItCv59ZgcVpPt_54FpweqauKmujfUuFi5Y5a9-d5Qvm9AAcUmLwb2-EiO3d6VYQ9RFnvmv9RuJFa3789YwVPoASYklas7r2GU6XQ=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "使用日本小山園抹茶，茶香濃郁微苦，回甘清爽，是抹茶控必吃的冰棒。",
         "detail": "嚴選日本小山園抹茶粉製作，不加香料與色素，保留抹茶原始的清香與微苦回甘。口感滑順不甜膩，尾韻淡雅，是大人味冰棒的代表，適合喜愛日式風味的你。",
         "category": "long-cake",
@@ -298,6 +298,7 @@ products = {
             "1": 480,
         }
     },
+    """
 }
 activities = [
     
