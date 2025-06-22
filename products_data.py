@@ -190,7 +190,7 @@ products = {
     "pearl-milk-tea-popsicle": {
         "id": "pearl-milk-tea-popsicle",
         "name": "珍珠奶茶冰棒",
-        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYXTSuipvMmIAb3PZAvS4R6tLxalnfWL-gbglNnMl8wbleDIbvcuMaoslrkVgn8cHgJD__biDbuajZLQP-RCcjV1bEUA8A_LJw=s1600-rw-v1",
         "short": "採用現熬茶湯製成奶茶冰體，搭配Q彈珍珠，還原經典珍奶口感。",
         "detail": "不使用茶粉，而是用上等茶葉現煮熬製，融合奶香冰體，入口茶韻回甘。搭配手工珍珠，咬感十足，還原最熟悉的台式風味。",
         "category": "popsicle",
@@ -202,7 +202,7 @@ products = {
     "macadamia-nuts-popsicle": {
         "id": "macadamia-nuts-popsicle",
         "name": "夏威夷果仁冰棒",
-        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYXTSuipvMmIAb3PZAvS4R6tLxalnfWL-gbglNnMl8wbleDIbvcuMaoslrkVgn8cHgJD__biDbuajZLQP-RCcjV1bEUA8A_LJw=s1600-rw-v1",
         "short": "濃醇奶香冰體中加入夏威夷果仁，香脆滑順，口感層次豐富。",
         "detail": "奶香濃郁的冰體搭配香脆夏威夷果仁，每一口都能吃到堅果碎粒，綿密與酥脆交融，是愛吃堅果者的冰品首選。",
         "category": "popsicle",
