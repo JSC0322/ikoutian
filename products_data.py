@@ -151,7 +151,7 @@ products = {
     "peanut-popsicle": {
         "id": "peanut-popsicle",
         "name": "花生冰棒",
-        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihZk2sNGbt2pACInP9fsSWuI94zXeAVqQKzV0Duve1-WDOUvVPrzj63cMUPP6qKL3vhPjjLk4leSYxQ7UUFumU9TFOiuc8PgxrU=s1600-rw-v1",
         "short": "濃郁花生醬融合鮮奶製作，香氣十足，口感滑順，傳統又不失驚喜。",
         "detail": "選用香氣濃厚的花生醬，結合鮮奶調和出滑順質地。每一口都能品嚐到花生的真實風味，是懷舊系冰棒中的經典代表。",
         "category": "popsicle",
@@ -235,7 +235,7 @@ products = {
     "matcha-popsicle": {
         "id": "matcha-popsicle",
         "name": "抹茶冰棒",
-        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYtI4RifFNKSlPYw4RPb7k3ejbmJlHpdhPXkZ8CkLcc8g9zpZW_m-Bs8p5wTb_MNN9rduxZDD17y1a1UNC5ul1daGvdS4CQQs8=s1600-rw-v1",
         "short": "使用日本小山園抹茶，茶香濃郁微苦，回甘清爽，是抹茶控必吃的冰棒。",
         "detail": "嚴選日本小山園抹茶粉製作，不加香料與色素，保留抹茶原始的清香與微苦回甘。口感滑順不甜膩，尾韻淡雅，是大人味冰棒的代表，適合喜愛日式風味的你。",
         "category": "popsicle",
