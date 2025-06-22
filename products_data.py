@@ -139,7 +139,7 @@ products = {
     "vanilla-popsicle": {
         "id": "vanilla-popsicle",
         "name": "香草牛奶冰棒",
-        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYem4itKUW0Ixr042-VBjzFQv2Rf02hZqdg7ZdBmu-2n3RQL3FNDH7JOrNCXoDfvb5nWmvaYJqBj18d-RXdrRkinJxZNZBU5_c=s1600-rw-v1",
         "short": "使用真實香草精製作，奶香濃郁滑順，經典香草冰棒，簡單卻讓人回味無窮。",
         "detail": "嚴選香草莢萃取天然香草精，搭配濃醇鮮奶製作，無添加香料與色素。口感滑順、甜而不膩，是老少咸宜的經典口味，純粹自然，每一口都吃得安心又滿足。",
         "category": "popsicle",
@@ -163,7 +163,7 @@ products = {
     "oreo-milk-popsicle": {
         "id": "oreo-milk-popsicle",
         "name": "OREO牛奶冰棒",
-        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYXTSuipvMmIAb3PZAvS4R6tLxalnfWL-gbglNnMl8wbleDIbvcuMaoslrkVgn8cHgJD__biDbuajZLQP-RCcjV1bEUA8A_LJw=s1600-rw-v1",
         "short": "香濃鮮奶中加入OREO碎片，口感豐富酥脆，是大人小孩都愛的甜點系冰棒。",
         "detail": "以滑順牛奶冰淇淋為基底，拌入大量OREO餅乾碎片，甜中帶脆，每一口都像在吃餅乾＋冰淇淋，讓人愛不釋手。",
         "category": "popsicle",
@@ -172,10 +172,13 @@ products = {
             "1": 45,
         }
     },
+    ###
+    ###
+    ###
     "chocolate-popsicle": {
         "id": "chocolate-popsicle",
         "name": "巧克力冰棒",
-        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYXTSuipvMmIAb3PZAvS4R6tLxalnfWL-gbglNnMl8wbleDIbvcuMaoslrkVgn8cHgJD__biDbuajZLQP-RCcjV1bEUA8A_LJw=s1600-rw-v1",
         "short": "使用法芙娜可可粉製作，濃郁香醇，苦甜平衡，是真正巧克力控的最愛。",
         "detail": "嚴選高品質可可粉製作，香氣濃郁、口感滑順，甜中帶苦、層次分明。不加香料的純粹巧克力風味，是大人味冰品的代表。",
         "category": "popsicle",
@@ -211,7 +214,7 @@ products = {
     "strawberry-popsicle": {
         "id": "strawberry-popsicle",
         "name": "草莓冰棒",
-        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihb63Z2WXx5O8-YiVWjsAXQPALQsZL77tgQ9S3ie9MMVAPxUlHJH12CTDpjnukdVm1fKDf3_0UoKOGTq0cL6aVzsIoYkGefM600=s1600-rw-v1",
         "short": "嚴選新鮮草莓打製，果香濃郁，酸甜適中，彷彿戀愛的滋味。",
         "detail": "使用台灣草莓製成果泥，保留天然果香與微酸口感。冰體滑順、甜度適中，是炎炎夏日中最能喚醒味蕾的夢幻口味。",
         "category": "popsicle",
@@ -223,7 +226,7 @@ products = {
     "berries-popsicle": {
         "id": "berries-popsicle",
         "name": "綜合莓果冰棒",
-        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihaSpbHd2COeK1OcfBHG1SprVMkkUP3SULHpkS8tbIYTvzrLBY7jgnP-ORWyuPgyVf2XqPi1gsar64MrjnT769Oaf0EvCSI7b-Q=s1600-rw-v1",
         "short": "多種莓果混合製作，果香層次豐富，酸甜平衡，充滿夏日清爽感。",
         "detail": "融合藍莓、覆盆子、小紅莓等多種莓果，口感層層堆疊、果香十足。每一口都充滿果肉纖維與酸甜風味，是莓果控的最愛。",
         "category": "popsicle",
@@ -247,7 +250,7 @@ products = {
     "red-beans-popsicle": {
         "id": "red-beans-popsicle",
         "name": "紅豆冰棒",
-        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYJtbP-3vyksVYKqRHzz7W6oFeQCefisgINU4j2fa0SsrSKWomVLQFi1ldp8iLAMfUubgnn8podRKN4UuM197l8onH94qIXmQ=s1600-rw-v1",
         "short": "嚴選台灣紅豆熬煮，保留顆粒口感，甜而不膩，懷舊經典風味。",
         "detail": "使用台灣紅豆慢火熬煮，紅豆顆顆飽滿，保留天然香氣與口感。冰體綿密、紅豆香濃，是從小吃到大的懷舊冰棒，甜度剛好、吃得到家的味道。",
         "category": "popsicle",
@@ -259,7 +262,19 @@ products = {
     "blueberry-popsicle": {
         "id": "blueberry-popsicle",
         "name": "藍莓冰棒",
-        "image": "https://lh3.googleusercontent.com/OokxLPG_a9Tp3zli3iew9HEUqe6b1g_DaXCrpfmP0m39RdiW6XWIgPdd_SJxCMXh9n_pSxGsoJqSxoNBy5S3rkUYtRLXP_6N2zogi0IL3TRObyvq30uNvFMIEO0NH-eHWjDurg3HzLMPhlWNM2rardphmK1Kp3cTieLyM0KC1ph8gug7OQ=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihbrUXUGSfOHNRm5QWNcwcWO4Jh64wNkm1ul8pelpD0DDt3nfEJs3SGX8Qm9dWCk9Nw13qE4T16se51lvIjbT4caSBsYRDls8w=s1600-rw-v1",
+        "short": "使用藍莓果肉打製，果香濃郁微酸，顏色天然、清爽解膩。",
+        "detail": "以新鮮藍莓製成果泥冰體，保留藍莓自然酸甜與深紫色澤，不添加色素香料。每一口都能感受到果粒香氣與微酸清爽，是喜歡果香系的冰友首選。",
+        "category": "popsicle",
+        "unit": "支",
+        "sizes": {
+            "1": 45,
+        }
+    },
+    "coffee-popsicle": {
+        "id": "coffee-popsicle",
+        "name": "咖啡冰棒",
+        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihaKKsfM9r0esCbT32EYbafXtLbYoTmam3Z8fCNe5a6KM-R8sONSMH0584PZTKs_9-nZZsTNvaGVLKUSBQqVGVUJ_26NLRBlNeQ=s1600-rw-v1",
         "short": "使用藍莓果肉打製，果香濃郁微酸，顏色天然、清爽解膩。",
         "detail": "以新鮮藍莓製成果泥冰體，保留藍莓自然酸甜與深紫色澤，不添加色素香料。每一口都能感受到果粒香氣與微酸清爽，是喜歡果香系的冰友首選。",
         "category": "popsicle",
