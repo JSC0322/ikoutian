@@ -307,8 +307,8 @@ products = {
             "1": 480,
         }
     },
-    "matcha-long": {
-        "id": "matcha-long",
+    "chocolate-long": {
+        "id": "chocolate-long",
         "name": "巧克力長條蛋糕",
         "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVBKbi9LE-_5huyiQHfKrVbfrtavrUyrU8aawHSMPJDRhS3G2F-PStSRT9OGH9nkQWQ9g_42GqCtwiSvjLiDyAiRR_ZGqa0iLyTonpRZUGGDSaZsPtQ9KCfFikA6BQgWNx7noqhKmMPr8JHXwTqVfGTTgA=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "法芙娜巧克力冰淇淋濃郁滑順，搭配酥脆巧克力餅乾，經典又療癒。",
