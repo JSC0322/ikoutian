@@ -138,7 +138,7 @@ def send_email_to_customer(customer_email, name, cart, total_price, pickup_date,
 # 店員信件
 
 def send_email_to_staff(cart, total_price, name, phone, email, pickup_date, store_type, store_name):
-    subject = "新訂單通知 - 一口甜冰淇淋"
+    subject = f"{name}的新訂單 - 一口甜冰淇淋"
     body = f"""
 有新訂單了！
 
