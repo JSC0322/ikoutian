@@ -172,13 +172,10 @@ products = {
             "1": 45,
         }
     },
-    ###
-    ###
-    ###
     "chocolate-popsicle": {
         "id": "chocolate-popsicle",
         "name": "巧克力冰棒",
-        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYXTSuipvMmIAb3PZAvS4R6tLxalnfWL-gbglNnMl8wbleDIbvcuMaoslrkVgn8cHgJD__biDbuajZLQP-RCcjV1bEUA8A_LJw=s1600-rw-v1",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVC-QGbqvUJVmoLZf3XyWVgiD8laxANvcGI7OaztmffE4h3n8sRtWc0VlAirQINQl2KPCaA8hsyTQeXfmkzI5eyiic1GGcYTwiu-nC-2DBhVNgiDgRZolFNLCGGyAudwVIt4BTMYEW34nTgeLKUKm8wrqQ=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "使用法芙娜可可粉製作，濃郁香醇，苦甜平衡，是真正巧克力控的最愛。",
         "detail": "嚴選高品質可可粉製作，香氣濃郁、口感滑順，甜中帶苦、層次分明。不加香料的純粹巧克力風味，是大人味冰品的代表。",
         "category": "popsicle",
@@ -190,7 +187,7 @@ products = {
     "pearl-milk-tea-popsicle": {
         "id": "pearl-milk-tea-popsicle",
         "name": "珍珠奶茶冰棒",
-        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYXTSuipvMmIAb3PZAvS4R6tLxalnfWL-gbglNnMl8wbleDIbvcuMaoslrkVgn8cHgJD__biDbuajZLQP-RCcjV1bEUA8A_LJw=s1600-rw-v1",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVBYWy9OjxlfVkYcE_GosF-B0070fiLJ5SWEut89_coWMjxjAwCkTvbsso2jL6kaF7XaGLekoj5qrgCf2Jyty5kQtMgHapKkoMdi-Dva5pETSeX23xeXbTDJKKzZoAnkvs-jntsrh6YbhYaG3Za6wxNT=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "採用現熬茶湯製成奶茶冰體，搭配Q彈珍珠，還原經典珍奶口感。",
         "detail": "不使用茶粉，而是用上等茶葉現煮熬製，融合奶香冰體，入口茶韻回甘。搭配手工珍珠，咬感十足，還原最熟悉的台式風味。",
         "category": "popsicle",
@@ -202,7 +199,7 @@ products = {
     "macadamia-nuts-popsicle": {
         "id": "macadamia-nuts-popsicle",
         "name": "夏威夷果仁冰棒",
-        "image": "https://drive.google.com/u/0/drive-viewer/AKGpihYXTSuipvMmIAb3PZAvS4R6tLxalnfWL-gbglNnMl8wbleDIbvcuMaoslrkVgn8cHgJD__biDbuajZLQP-RCcjV1bEUA8A_LJw=s1600-rw-v1",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVD28Cx60005cHXCyDxGbpI9K_bFemkaIUFzOUUF71d-3UP1Bl77b7x9Hni845AHrsTz8Zw39fvErrr9B_bksq6orq1Rs4MceQ9vMF2K0fY72WYeLFmJ7EW5BUcGKEOfH9PWIyvIdu9UJ8p8rpDw1Gx3=w260?key=W1w9LWLVB2PoIVnkMhJERA",
         "short": "濃醇奶香冰體中加入夏威夷果仁，香脆滑順，口感層次豐富。",
         "detail": "奶香濃郁的冰體搭配香脆夏威夷果仁，每一口都能吃到堅果碎粒，綿密與酥脆交融，是愛吃堅果者的冰品首選。",
         "category": "popsicle",
@@ -293,7 +290,31 @@ products = {
         "short": "經典珍珠奶茶變身冰淇淋蛋糕，Q彈珍珠搭配濃郁奶茶，冰涼又療癒！",
         "detail": "現熬茶香融合奶香滑順，搭配Q彈珍珠，還原最熟悉的珍珠奶茶冰淇淋蛋糕。",
         "category": "long-cake",
-        "unit": "支",
+        "unit": "條",
+        "sizes": {
+            "1": 480,
+        }
+    },
+    "matcha-long": {
+        "id": "matcha-long",
+        "name": "抹茶長條蛋糕",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVAoJETKWt8-ASpARNGgCdymTk5enSaqK0q7ripBFchxBqcJVihJVhL6zN4DDNiqDcgIBO1z2GO5hKOKCvcsRUeAgSJr0lcPs6Z3ddnaqqGpH8UCWCgrZD7Zszrb_86_gF59Z-mqWpOXXIaWlKxdkTPqHg=w260?key=W1w9LWLVB2PoIVnkMhJERA",
+        "short": "小山園抹茶搭配蜜紅豆與麻糬，經典日式風味，層次豐富、茶香迷人。",
+        "detail": "選用日本小山園若竹抹茶，冰淇淋濃郁不苦澀，搭配香甜蜜紅豆與Q彈白玉麻糬，融合日式經典與冰涼口感，清爽又有層次，是抹茶控不可錯過的夏日甜點！",
+        "category": "long-cake",
+        "unit": "條",
+        "sizes": {
+            "1": 480,
+        }
+    },
+    "matcha-long": {
+        "id": "matcha-long",
+        "name": "巧克力長條蛋糕",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVBKbi9LE-_5huyiQHfKrVbfrtavrUyrU8aawHSMPJDRhS3G2F-PStSRT9OGH9nkQWQ9g_42GqCtwiSvjLiDyAiRR_ZGqa0iLyTonpRZUGGDSaZsPtQ9KCfFikA6BQgWNx7noqhKmMPr8JHXwTqVfGTTgA=w260?key=W1w9LWLVB2PoIVnkMhJERA",
+        "short": "法芙娜巧克力冰淇淋濃郁滑順，搭配酥脆巧克力餅乾，經典又療癒。",
+        "detail": "使用頂級法芙娜可可粉製作冰淇淋，濃郁不甜膩，口感滑順，再搭配巧酥餅乾增添層次，入口即化的濃巧世界，是每一位巧克力控的夢幻首選。",
+        "category": "long-cake",
+        "unit": "條",
         "sizes": {
             "1": 480,
         }
