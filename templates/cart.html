@@ -83,9 +83,10 @@
       const grandTotal = productTotal + shippingFee;
 
       priceSummary.innerHTML = `
-        <p>商品小計：NT$${productTotal}</p>
-        <p>運費：NT$${shippingFee}</p>
-        <p><strong>總計金額：NT$${grandTotal}</strong></p>
+      <p>商品小計：NT$${productTotal}</p>
+      <p>運費：NT$${shippingFee}</p>
+      ${productTotal < 980 ? '<p style="color: gray; font-size: 0.9em;">滿 980 元免運費</p>' : ''}
+      <p><strong>總計金額：NT$${grandTotal}</strong></p>
       `;
     }
 
