@@ -10,7 +10,7 @@ products = {
     "mango-cake": {
         "id": "mango-cake",
         "name": "芒果冰淇淋蛋糕",
-        "image": "https://hackmd.io/_uploads/ryUVFiQ4eg.jpg",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVAE-t4QcxFG9HLgQmxumsMWWC13HWm809RTIMJFsiQp8G2Ar_JI5FPiYbbaDpeMSlSnXqyUvBGxVzqAgblzZvEVOodsQPiBblW_qLsFtyV4U8-C36Emyf7N3FW4tzw6yXU1MBtd1EMTTkVV3b4O8w4qdg=w260?key=f3LMdrebQNMgqn96gxJSfw",
         "short": "季節限定芒果冰淇淋蛋糕，嚴選愛文芒果製作，果香濃郁，清爽滑順超消暑。",
         "detail": "嚴選當季愛文芒果製作，果肉香甜多汁，與濃郁奶香冰淇淋完美融合。綿密蛋糕體搭配滑順口感，層層堆疊出酸甜清爽的夏日風味，是不可錯過的芒果季限定甜點！",
         "category": "ice_cream_cake",
