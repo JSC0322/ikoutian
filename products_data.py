@@ -321,7 +321,14 @@ products = {
     },
 }
 activities = [
-    
+    {
+    "title": "季節限定芒果冰淇淋蛋糕",
+        "description": "季節限定芒果冰淇淋蛋糕，嚴選愛文芒果製作，果香濃郁，清爽滑順超消暑。",
+        "url": "https://asweet.com.tw/shop/mango-cake",
+        "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVAE-t4QcxFG9HLgQmxumsMWWC13HWm809RTIMJFsiQp8G2Ar_JI5FPiYbbaDpeMSlSnXqyUvBGxVzqAgblzZvEVOodsQPiBblW_qLsFtyV4U8-C36Emyf7N3FW4tzw6yXU1MBtd1EMTTkVV3b4O8w4qdg=w260?key=f3LMdrebQNMgqn96gxJSfw",
+        "start_date": "2025-06-30",
+        "end_date": "2025-08-31"
+    },
 ]
 
 
