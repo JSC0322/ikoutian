@@ -284,8 +284,8 @@ products = {
         "id": "coffee-popsicle",
         "name": "綜合冰棒組",
         "image": "",
-        "short": "使用藍莓果肉打製，果香濃郁微酸，顏色天然、清爽解膩。",
-        "detail": "以新鮮藍莓製成果泥冰體，保留藍莓自然酸甜與深紫色澤，不添加色素香料。每一口都能感受到果粒香氣與微酸清爽，是喜歡果香系的冰友首選。",
+        "short": "12支人氣冰棒組合，口味豐富不重複，清涼又實在，夏日必備的超值選擇！",
+        "detail": "嚴選香草、草莓、OREO、抹茶、咖啡等12種經典口味，一組全包不重複，每支用料實在、無香料無色素，冰涼順口，大人小孩都愛，是送禮自用兩相宜的夏季人氣組合！",
         "category": "popsicle",
         "unit": "支",
         "sizes": {
@@ -323,8 +323,8 @@ products = {
         "id": "chocolate-long",
         "name": "巧克力長條蛋糕",
         "image": "https://lh7-rt.googleusercontent.com/formsz/AN7BsVBKbi9LE-_5huyiQHfKrVbfrtavrUyrU8aawHSMPJDRhS3G2F-PStSRT9OGH9nkQWQ9g_42GqCtwiSvjLiDyAiRR_ZGqa0iLyTonpRZUGGDSaZsPtQ9KCfFikA6BQgWNx7noqhKmMPr8JHXwTqVfGTTgA=w260?key=W1w9LWLVB2PoIVnkMhJERA",
-        "short": "12支人氣冰棒組合，口味豐富不重複，清涼又實在，夏日必備的超值選擇！",
-        "detail": "嚴選香草、草莓、OREO、抹茶、咖啡等12種經典口味，一組全包不重複，每支用料實在、無香料無色素，冰涼順口，大人小孩都愛，是送禮自用兩相宜的夏季人氣組合！",
+        "short": "法芙娜巧克力冰淇淋濃郁滑順，搭配酥脆巧克力餅乾，經典又療癒。",
+        "detail": "使用頂級法芙娜可可粉製作冰淇淋，濃郁不甜膩，口感滑順，再搭配巧酥餅乾增添層次，入口即化的濃巧世界，是每一位巧克力控的夢幻首選。",
         "category": "long-cake",
         "unit": "條",
         "sizes": {
