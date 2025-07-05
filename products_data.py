@@ -281,7 +281,7 @@ products = {
         }
     },
     "mix-popsicle": {
-        "id": "coffee-popsicle",
+        "id": "mix-popsicle",
         "name": "綜合冰棒組",
         "image": "",
         "short": "12支人氣冰棒組合，口味豐富不重複，清涼又實在，夏日必備的超值選擇！",
