@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for, session, send_from_directory, jsonify
-from products_data import products, activities
+from products_data import products, activities, redirect_map
 from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -41,14 +41,15 @@ def activity_page():
 
 @app.route('/shop/<id>')
 def product_detail(id):
+    # 直接找產品
     if id in products:
         return render_template('shop.html', product=products[id])
+    # 查 redirect_map
+    elif id in redirect_map:
+        new_id = redirect_map[id]
+        return redirect(f"/shop/{new_id}", code=301)
     else:
         return "找不到商品", 404
-
-@app.route("/shop/berries")
-def redirect_old_berry():
-    return redirect("/shop/berries-cake", code=301)
 
 @app.route("/api/verify", methods=["POST"])
 def verify_password():
