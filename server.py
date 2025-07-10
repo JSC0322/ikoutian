@@ -46,6 +46,10 @@ def product_detail(id):
     else:
         return "找不到商品", 404
 
+@app.route("/shop/berries")
+def redirect_old_berry():
+    return redirect("/shop/berries-cake", code=301)
+
 @app.route("/api/verify", methods=["POST"])
 def verify_password():
     data = request.get_json()
