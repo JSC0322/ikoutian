@@ -345,7 +345,8 @@ activities = [
 
 
 redirect_map = {
-    "berry": "berry-cake",
+    "berries": "berries-cake",
+    "berry": "berries-cake",
     "mango": "mango-cake",
     "vanilla-chocolate": "vanilla-chocolate-cake",
     "pearl-milk-tea": "pearl-milk-tea-cake",
