@@ -25,15 +25,18 @@ def home():
     latest_activity = valid_activities[0] if valid_activities else None
     return render_template('index.html', products=products, latest_activity=latest_activity)
     
-@app.route('/products')
+@app.route('/shop')
 def products_page():
-    selected_category = request.args.get('category', 'ice_cream_cake')
+    selected_category = request.args.get('category', 'all')
     if selected_category == 'all':
         filtered = products
     else:
         filtered = {k: v for k, v in products.items() if v['category'] == selected_category}
-    
     return render_template('products.html', products=filtered, selected=selected_category)
+
+@app.route('/products')
+def redirect_to_shop():
+    return redirect('/shop', code=301)
 
 @app.route('/activity')
 def activity_page():
