@@ -36,7 +36,7 @@ def products_page():
 
 @app.route('/products')
 def redirect_to_shop():
-    return redirect('/shop', code=301)
+    return redirect('/shop', code=302)
 
 @app.route('/activity')
 def activity_page():
