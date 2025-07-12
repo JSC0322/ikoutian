@@ -35,8 +35,13 @@ def products_page():
     return render_template('products.html', products=filtered, selected=selected_category)
 
 @app.route('/products')
-def redirect_to_shop():
-    return redirect('/shop', code=302)
+def products_page():
+    selected_category = request.args.get('category', 'all')
+    if selected_category == 'all':
+        filtered = products
+    else:
+        filtered = {k: v for k, v in products.items() if v['category'] == selected_category}
+    return render_template('products.html', products=filtered, selected=selected_category)
 
 @app.route('/activity')
 def activity_page():
