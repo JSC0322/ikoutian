@@ -26,7 +26,7 @@ def home():
     return render_template('index.html', products=products, latest_activity=latest_activity)
     
 @app.route('/shop')
-def products_page():
+def shop_page():
     selected_category = request.args.get('category', 'all')
     if selected_category == 'all':
         filtered = products
