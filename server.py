@@ -12,7 +12,7 @@ SENDER_PASSWORD = 'ceop-rxfr-awlo-avno'
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
-ADMIN_PASSWORD = "1234"
+ADMIN_PASSWORD = "123123"
 ORDERS_PATH = "/data/orders.py"
 
 @app.route('/')
