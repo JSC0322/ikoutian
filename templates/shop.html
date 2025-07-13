@@ -107,6 +107,8 @@
       size: size + ' {{ product.unit }}',
       quantity: quantity,
       price: price
+      category: "{{ product.category }}",
+      pop300: {{ 'true' if product.get('pop300') else 'false' }}
     });
 
     localStorage.setItem('cart', JSON.stringify(cart));
