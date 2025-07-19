@@ -128,9 +128,7 @@ products = {
         "category": "ice_cream_cake",
         "unit": "吋",
         "sizes": {
-            "4": 480,
-            "6": 980,
-            "8": 1480
+            "6": 980
         }
     },
 
