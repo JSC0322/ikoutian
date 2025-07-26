@@ -12,7 +12,7 @@ SENDER_PASSWORD = 'ceop-rxfr-awlo-avno'
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
-ADMIN_PASSWORD = "123123"
+ADMIN_PASSWORD = "1234"
 ORDERS_PATH = "/data/orders.py"
 
 @app.route('/')
@@ -26,14 +26,6 @@ def home():
     return render_template('index.html', products=products, latest_activity=latest_activity)
     
 @app.route('/shop')
-def shop_page():
-    selected_category = request.args.get('category', 'all')
-    if selected_category == 'all':
-        filtered = products
-    else:
-        filtered = {k: v for k, v in products.items() if v['category'] == selected_category}
-    return render_template('products.html', products=filtered, selected=selected_category)
-
 @app.route('/products')
 def products_page():
     selected_category = request.args.get('category', 'all')
