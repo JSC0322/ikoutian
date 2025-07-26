@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /admin
 Allow: /
-Sitemap: https://asweet.com.tw/sitemap.xml
+Sitemap: https://asweet.com.tw/static/sitemap.xml
