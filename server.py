@@ -68,7 +68,7 @@ def cart():
 
 @app.route("/sitemap.xml")
 def sitemap():
-    return app.send_static_file("sitemap.xml")
+    return send_from_directory("static", "sitemap.xml", mimetype="application/xml")
 
 @app.route("/robots.txt")
 def robots():
