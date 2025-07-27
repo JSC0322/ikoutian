@@ -205,7 +205,7 @@ def submit_order():
         email=data.get("email", ""),
         pickup_date=data.get("pickupTime", ""),
         store_type=data.get("storeType", ""),
-        store_name=data.get("storeName", "")
+        store_name=data.get("storeName", ""),
         note=note
     )
 
