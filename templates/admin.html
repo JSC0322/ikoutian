@@ -37,6 +37,7 @@
           <th>取貨日期</th>
           <th>Email</th>
           <th>內容</th>
+          <th>備註</th>
           <th>已完成</th>
           <th>已出貨</th>
           <th>刪除</th>
@@ -91,6 +92,7 @@
                 ${(order.cart || []).map(item => `<li>${item.name} (${item.size}) x ${item.quantity}</li>`).join('')}
               </ul>
             </td>
+            <td>${order.note ? order.note.replace(/\n/g, "<br>") : "無"}</td>
             <td class="checkbox-col"><input type="checkbox" ${doneChecked} onchange="markStatus(${index}, 'done', this.checked)"></td>
             <td class="checkbox-col"><input type="checkbox" ${shippedChecked} onchange="markStatus(${index}, 'shipped', this.checked)"></td>
             <td class="delete-col"><button class="delete-btn" onclick="deleteOrder(${index})">刪除</button></td>
