@@ -130,7 +130,7 @@
       const pickupTime = document.getElementById("pickup-time").value;
       const note = document.getElementById("note").value.trim();
       
-      // ✅ 基本前端驗證（不寫 email 沒關係）
+      // 前端驗證
       if (!phone || !storeType || !storeName || !pickupTime) {
         alert("請填寫所有必填欄位！");
         return;
