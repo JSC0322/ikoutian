@@ -184,7 +184,8 @@ def submit_order():
     cart = data.get("cart", [])
     summary = ', '.join([f"{item['name']}({item['size']})x{item['quantity']}" for item in cart])
     total_price = sum(item["price"] * item["quantity"] for item in cart)
-    name = data.get("name", "").strip() or "顧客"
+    name = data.get("name", "").strip()
+    note = data.get("note", "")
     
     send_email_to_customer(
         customer_email=data.get("email", ""),
