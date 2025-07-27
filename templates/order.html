@@ -75,6 +75,9 @@
         <label>取貨時間 *</label>
         <input type="date" id="pickup-time" required>
       </div>
+      <div class="from-group">
+        <label for="note">備註（選填）</label>
+        <texterea id="note" rows="4"></texterea>
       <button class="submit-btn" type="submit">送出訂單</button>
     </form>
   </main>
@@ -115,6 +118,7 @@
       const storeType = document.getElementById("store-type").value;
       const storeName = document.getElementById("store-name").value.trim();
       const pickupTime = document.getElementById("pickup-time").value;
+      const note = document.getElementById("note").value.trim();
       
       // ✅ 基本前端驗證（不寫 email 沒關係）
       if (!phone || !storeType || !storeName || !pickupTime) {
@@ -135,7 +139,8 @@
         storeType,
         storeName,
         pickupTime,
-        cart
+        cart,
+        note
       };
       
       fetch("/submit_order", {
