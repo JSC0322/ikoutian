@@ -13,6 +13,7 @@
     .login-form input { padding: 8px; }
     .checkbox-col, .delete-col { text-align: center; }
     .delete-btn { padding: 5px 10px; background-color: #d9534f; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    h2 { margin-top: 40px; }
   </style>
 </head>
 <body>
@@ -45,6 +46,23 @@
       </thead>
       <tbody id="orders-body"></tbody>
     </table>
+
+    <h2>歷史訂單</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>電話</th>
+          <th>便利商店</th>
+          <th>店名</th>
+          <th>取貨日期</th>
+          <th>Email</th>
+          <th>內容</th>
+          <th>備註</th>
+        </tr>
+      </thead>
+      <tbody id="history-body"></tbody>
+    </table>
   </div>
 
   <script>
@@ -75,12 +93,13 @@
       fetch('/api/orders').then(res => res.json()).then(data => {
         allOrders = data;
         const tbody = document.getElementById('orders-body');
+        const historyBody = document.getElementById('history-body');
         tbody.innerHTML = '';
+        historyBody.innerHTML = '';
+
         data.forEach((order, index) => {
-          const doneChecked = order.done ? 'checked' : '';
-          const shippedChecked = order.shipped ? 'checked' : '';
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
+          const isHistory = order.done && order.shipped;
+          const orderHTML = `
             <td>${order.name || "無"}</td>
             <td>${order.phone || "無"}</td>
             <td>${order.storeType || "無"}</td>
@@ -93,11 +112,24 @@
               </ul>
             </td>
             <td>${order.note ? order.note.replace(/\n/g, "<br>") : "無"}</td>
-            <td class="checkbox-col"><input type="checkbox" ${doneChecked} onchange="markStatus(${index}, 'done', this.checked)"></td>
-            <td class="checkbox-col"><input type="checkbox" ${shippedChecked} onchange="markStatus(${index}, 'shipped', this.checked)"></td>
-            <td class="delete-col"><button class="delete-btn" onclick="deleteOrder(${index})">刪除</button></td>
           `;
-          tbody.appendChild(tr);
+
+          const tr = document.createElement('tr');
+
+          if (isHistory) {
+            tr.innerHTML = orderHTML;
+            historyBody.appendChild(tr);
+          } else {
+            const doneChecked = order.done ? 'checked' : '';
+            const shippedChecked = order.shipped ? 'checked' : '';
+            tr.innerHTML = `
+              ${orderHTML}
+              <td class="checkbox-col"><input type="checkbox" ${doneChecked} onchange="markStatus(${index}, 'done', this.checked)"></td>
+              <td class="checkbox-col"><input type="checkbox" ${shippedChecked} onchange="markStatus(${index}, 'shipped', this.checked)"></td>
+              <td class="delete-col"><button class="delete-btn" onclick="deleteOrder(${index})">刪除</button></td>
+            `;
+            tbody.appendChild(tr);
+          }
         });
       });
     }
@@ -108,7 +140,7 @@
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ index, field, value })
-      });
+      }).then(() => loadOrders());
     }
 
     function deleteOrder(index) {
