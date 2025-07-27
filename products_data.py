@@ -366,6 +366,7 @@ redirect_map = {
     "peral": "pearl-milk-tea-cake",
     "milk-strawberry": "milk-strawberry-cake",
     "strawberry-cake": "milk-strawberry-cake",
+    "strawberry": "milk-strawberry-cake",
     "milk-peanut-cake": "milk-peanut-cake",
     "chocolate-strawberry": "chocolate-strawberry-cake",
     "matcha": "matcha-cake",
