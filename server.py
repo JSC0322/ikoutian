@@ -131,6 +131,7 @@ def send_email_to_customer(customer_email, name, cart, total_price, pickup_date,
 總金額：{total_price} 元
 取貨日期：{pickup_date}
 取貨便利商店：{store_type} - {store_name} 門市
+您的備註：{note or "無"}
 
 如有任何問題，請聯絡我們。
 祝您有個美好的一天！
@@ -154,6 +155,7 @@ def send_email_to_staff(cart, total_price, name, phone, email, pickup_date, stor
 電子郵件：{email}
 取貨日期：{pickup_date}
 取貨便利商店：{store_type}  {store_name} 門市
+客人備註：{note or "無"}
 """
     for ssent in ["aching0301@gmail.com", "piggy109023@gmail.com", "clerk@asweet.com.tw"]:
         send_email(ssent, subject, body)
@@ -191,7 +193,8 @@ def submit_order():
         total_price=total_price,
         pickup_date=data.get("pickupTime", ""),
         store_type=data.get("storeType", ""),
-        store_name=data.get("storeName", "")
+        store_name=data.get("storeName", ""),
+        note=note
     )
     
     send_email_to_staff(
@@ -203,6 +206,7 @@ def submit_order():
         pickup_date=data.get("pickupTime", ""),
         store_type=data.get("storeType", ""),
         store_name=data.get("storeName", "")
+        note=note
     )
 
     with open(ORDERS_PATH, "w", encoding="utf-8") as f:
