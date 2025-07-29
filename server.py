@@ -96,7 +96,7 @@ def order():
 
 @app.route("/track")
 def track():
-    return 'Stay tuned', 200
+    return '敬啟期待', 200
 
 @app.route("/api/products")
 def all_products():
