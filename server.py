@@ -94,6 +94,10 @@ def about():
 def order():
     return render_template("order.html")
 
+@app.route("/track")
+def track():
+    return 'Stay tuned', 200
+
 @app.route("/api/products")
 def all_products():
     return jsonify(products)
