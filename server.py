@@ -60,6 +60,7 @@ def verify_password():
 
 @app.route("/admin")
 def admin_page():
+    print("Manage your robots!!!")
     return render_template("admin.html")
 
 @app.route("/cart")
