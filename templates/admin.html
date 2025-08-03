@@ -27,7 +27,7 @@
   </div>
 
   <div id="orders-section" class="hidden">
-    <h2>收款銀行帳號:53168057590</h2>
+    <h3>收款銀行帳號:53168057590</h3>
     <h2>訂單列表</h2>
     <table>
       <thead>
@@ -90,15 +90,33 @@
       }).catch(err => alert("登入失敗！"));
     }
 
+    function parseDate(dateStr) {
+      if (!dateStr) return null;
+      const cleaned = dateStr.replaceAll('/', '-');
+      const date = new Date(cleaned);
+      return isNaN(date.getTime()) ? null : date;
+    }
+
     function loadOrders() {
       fetch('/api/orders').then(res => res.json()).then(data => {
         allOrders = data;
+
         const tbody = document.getElementById('orders-body');
         const historyBody = document.getElementById('history-body');
         tbody.innerHTML = '';
         historyBody.innerHTML = '';
 
-        data.forEach((order, index) => {
+        // 依照取貨日期排序，越晚在越上面
+        const sorted = [...data].sort((a, b) => {
+          const da = parseDate(a.pickupTime);
+          const db = parseDate(b.pickupTime);
+          if (!da && !db) return 0;
+          if (!da) return 1;
+          if (!db) return -1;
+          return db - da;
+        });
+
+        sorted.forEach((order, index) => {
           const isHistory = order.done && order.shipped;
           const orderHTML = `
             <td>${order.name || "無"}</td>
@@ -155,3 +173,4 @@
   </script>
 </body>
 </html>
+
