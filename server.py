@@ -63,9 +63,13 @@ def admin_page():
     print("Manage your robots!!!")
     return render_template("admin.html")
 
+# @app.route("/cart")
+# def cart():
+#     return render_template("cart.html")
+
 @app.route("/cart")
 def cart():
-    return render_template("cart.html")
+    return '網站遭到攻擊，本功能暫時停用', 302
 
 @app.route("/sitemap.xml")
 def sitemap():
