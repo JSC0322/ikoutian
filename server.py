@@ -8,7 +8,7 @@ import os, json, smtplib
 SMTP_SERVER = 'smtp.mail.me.com'
 SMTP_PORT = 587
 SENDER_EMAIL = 'piggy109023@icloud.com'
-SENDER_PASSWORD = 'ceop-rxfr-awlo-avno'
+SENDER_PASSWORD = '****-****-****-****'
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
