@@ -69,7 +69,7 @@ def admin_page():
 
 @app.route("/cart")
 def cart():
-    return '網站遭到攻擊，本功能暫時停用', 302
+    return '網站遭到攻擊，本功能暫停使用', 302
 
 @app.route("/sitemap.xml")
 def sitemap():
