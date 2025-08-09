@@ -5,15 +5,8 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os, json, smtplib
 
-SMTP_SERVER = 'smtp.mail.me.com'
-SMTP_PORT = 587
-SENDER_EMAIL = 'piggy109023@icloud.com'
-SENDER_PASSWORD = '****-****-****-****'
-
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-key")
-ADMIN_PASSWORD = "1234"
-ORDERS_PATH = "/data/orders.py"
 
 @app.route('/')
 def home():
@@ -63,13 +56,9 @@ def admin_page():
     print("Manage your robots!!!")
     return render_template("admin.html")
 
-# @app.route("/cart")
-# def cart():
-#     return render_template("cart.html")
-
 @app.route("/cart")
 def cart():
-    return '網站遭到攻擊，本功能暫停使用', 302
+    return render_template("cart.html")
 
 @app.route("/sitemap.xml")
 def sitemap():
@@ -106,6 +95,13 @@ def track():
 @app.route("/api/products")
 def all_products():
     return jsonify(products)
+
+SMTP_SERVER = 'smtp.mail.me.com'
+SMTP_PORT = 587
+SENDER_EMAIL = 'piggy109023@icloud.com'
+SENDER_PASSWORD = 'lhij-mxxm-zcfd-eehq'
+ADMIN_PASSWORD = "0000"
+ORDERS_PATH = "/data/orders.py"
     
 @app.route('/wp-includes/<path:path>')
 @app.route('/media/<path:path>')
@@ -151,7 +147,6 @@ def send_email_to_customer(customer_email, name, cart, total_price, pickup_date,
         send_email(customer_email, subject, body)
 
 # 店員信件
-
 def send_email_to_staff(cart, total_price, name, phone, email, pickup_date, store_type, store_name, note=""):
     subject = f"{name}的新訂單 - 一口甜冰淇淋"
     body = f"""
